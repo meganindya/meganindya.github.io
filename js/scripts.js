@@ -91,7 +91,7 @@
   });
 
   // Create timeline
-  $("#activities-timeline").each(function () {
+  $("#events-timeline").each(function () {
     $this = $(this); // Store reference to this
     $userContent = $this.children("div"); // user content
 
