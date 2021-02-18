@@ -23,6 +23,9 @@ module.exports = (env) => {
                     removeAttributeQuotes: true
                 }
             }),
+            new MiniCssExtractPlugin({
+                filename: 'style.css'
+            }),
             new CleanWebpackPlugin({ cleanStaleWebpackAssets: false })
         ],
         module: {
@@ -65,7 +68,12 @@ module.exports = (env) => {
                 {
                     test: /\.scss$/,
                     use: [
-                        MiniCssExtractPlugin.loader,
+                        {
+                            loader: MiniCssExtractPlugin.loader,
+                            options: {
+                                publicPath: ''
+                            }
+                        },
                         {
                             loader: 'css-loader',
                             options: env.development
