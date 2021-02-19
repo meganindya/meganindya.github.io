@@ -20,7 +20,7 @@ export default class BannerPrimary extends Scrollable {
 
         this.element.style.width = `${this._dimensions.width.max}px`;
         this.element.style.height = `${this._dimensions.height.max}px`;
-        (this.element.childNodes[0] as HTMLElement).style.opacity = '0.5';
+        (this.element.childNodes[0] as HTMLElement).style.opacity = '1';
     }
 
     private _updateSizes(): void {
@@ -42,7 +42,7 @@ export default class BannerPrimary extends Scrollable {
         const closeMin = () => {
             this.element.style.width = `${this._dimensions.width.max}px`;
             this.element.style.height = `${this._dimensions.height.max}px`;
-            (this.element.childNodes[0] as HTMLElement).style.opacity = '0.5';
+            (this.element.childNodes[0] as HTMLElement).style.opacity = '0.75';
         };
 
         const closeMax = () => {
@@ -63,7 +63,7 @@ export default class BannerPrimary extends Scrollable {
                 relativeScroll * (this._dimensions.height.max - this._dimensions.height.min)
             }px`;
             (this.element.childNodes[0] as HTMLElement).style.opacity = `${
-                (1 - relativeScroll) * 0.5
+                (1 - relativeScroll) * 0.75
             }`;
         };
 
