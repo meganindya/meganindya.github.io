@@ -24,7 +24,7 @@ export default class {
     private _updateSizes(): void {
         const bannerPrimaryWrapperDimens = (document.getElementById(
             'banner-wrapper'
-        ) as HTMLElement)?.getBoundingClientRect();
+        ) as HTMLElement).getBoundingClientRect();
 
         this._bannerPrimary.offset.top = bannerPrimaryWrapperDimens.top;
         this._bannerPrimary.offset.bottom = window.innerHeight - bannerPrimaryWrapperDimens.bottom;
