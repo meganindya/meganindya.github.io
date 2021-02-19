@@ -83,3 +83,33 @@ export class Scroller {
         }
     }
 }
+
+export abstract class Scrollable {
+    protected element: HTMLElement;
+    private _scrollRange: TScrollRange;
+    private _scroller: Scroller;
+
+    constructor(element: HTMLElement, scroller: Scroller) {
+        this.element = element;
+        this._scrollRange = { min: 0, max: 0 };
+        this._scroller = scroller;
+
+        this.initDom();
+    }
+
+    public set scrollRange(scrollRange: TScrollRange) {
+        this._scrollRange = scrollRange;
+    }
+
+    public get scrollRange(): TScrollRange {
+        return this._scrollRange;
+    }
+
+    protected get scroller(): Scroller {
+        return this._scroller;
+    }
+
+    protected abstract initDom(): void;
+
+    public abstract scrollUpdate(): void;
+}
