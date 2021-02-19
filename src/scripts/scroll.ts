@@ -1,6 +1,6 @@
 import { TTarget, TScrollRange, TScrollHandler } from './@types/main';
 
-export default class {
+export class ScrollHandler {
     private _targets = ['banner-primary', 'footer'];
     private _rangeEnds = [499, 3000];
 
@@ -50,6 +50,36 @@ export default class {
                 });
                 this._prevTargetIndex++;
             }
+        }
+    }
+}
+
+export class Scroller {
+    private _scrollPos = 0;
+
+    constructor() {
+        window.addEventListener('scroll', () => {
+            this._scrollPos = window.scrollY;
+        });
+    }
+
+    private _relativeScroll(scrollRange: TScrollRange) {
+        return (this._scrollPos - scrollRange.min) / (scrollRange.max - scrollRange.min);
+    }
+
+    public handleScroll(
+        scrollRange: TScrollRange,
+        exitMin: () => void,
+        exitMax: () => void,
+        // eslint-disable-next-line no-unused-vars
+        inRange: (relativeScroll: () => number) => void
+    ): void {
+        if (this._scrollPos < scrollRange.min) {
+            exitMin();
+        } else if (this._scrollPos > scrollRange.max) {
+            exitMax();
+        } else {
+            inRange(() => this._relativeScroll(scrollRange));
         }
     }
 }

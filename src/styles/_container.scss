@@ -7,6 +7,13 @@
   320+ > 20
  */
 
+.wrapper {
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
 .container {
   max-width: 1520px;
   width: calc(100% - 160px);

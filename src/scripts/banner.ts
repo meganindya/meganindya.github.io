@@ -1,91 +1,79 @@
 import { TScrollRange } from './@types/main';
+import { Scroller } from './scroll';
 
 export default class {
     private _bannerPrimary = {
         element: document.getElementById('banner-primary') as HTMLElement,
         width: { min: 0, max: 0 },
         height: { min: 0, max: 0 },
-        offset: { top: 0, bottom: 0 },
         scrollRange: { min: 0, max: 0 }
     };
+    private _scroller: Scroller;
 
-    constructor() {
+    constructor(scroller: Scroller) {
         this._updateSizes();
+        this._initDOM();
+
+        this._scroller = scroller;
+
         window.addEventListener('resize', () => {
             this._updateSizes();
             this.scrollUpdate();
         });
     }
 
+    private _updateSizes(): void {
+        const windowWidth = window.innerWidth;
+        const windowHeight = window.innerHeight;
+        const scaleFactor = 1.25;
+
+        this._bannerPrimary.width = {
+            min: windowWidth,
+            max: windowWidth * scaleFactor
+        };
+        this._bannerPrimary.height = {
+            min: windowHeight,
+            max: windowHeight * scaleFactor
+        };
+    }
+
+    private _initDOM() {
+        (this._bannerPrimary.element.childNodes[0] as HTMLElement).style.opacity = '0.5';
+    }
+
     public set scrollRange(scrollRange: TScrollRange) {
         this._bannerPrimary.scrollRange = scrollRange;
     }
 
-    private _updateSizes(): void {
-        const bannerPrimaryWrapperDimens = (document.getElementById(
-            'banner-wrapper'
-        ) as HTMLElement).getBoundingClientRect();
-
-        this._bannerPrimary.offset.top = bannerPrimaryWrapperDimens.top;
-        this._bannerPrimary.offset.bottom = window.innerHeight - bannerPrimaryWrapperDimens.bottom;
-
-        this._bannerPrimary.width = {
-            min: bannerPrimaryWrapperDimens.width,
-            max: window.innerWidth
-        };
-        this._bannerPrimary.height = {
-            min: bannerPrimaryWrapperDimens.height,
-            max: window.innerHeight
-        };
-        this._bannerPrimary.element.style.top = `${-this._bannerPrimary.offset.top}px`;
-    }
-
     public scrollUpdate(): void {
-        const scrollPos = window.scrollY;
+        const closeMin = () => {
+            this._bannerPrimary.element.style.width = `${this._bannerPrimary.width.max}px`;
+            this._bannerPrimary.element.style.height = `${this._bannerPrimary.height.max}px`;
+            (this._bannerPrimary.element.childNodes[0] as HTMLElement).style.opacity = '0.5';
+        };
 
-        if (
-            scrollPos < this._bannerPrimary.scrollRange.min ||
-            scrollPos > this._bannerPrimary.scrollRange.max
-        ) {
-            const bannerWidth = this._bannerPrimary.element.clientWidth;
+        const closeMax = () => {
+            this._bannerPrimary.element.style.width = `${this._bannerPrimary.width.min}px`;
+            this._bannerPrimary.element.style.height = `${this._bannerPrimary.height.min}px`;
+            (this._bannerPrimary.element.childNodes[0] as HTMLElement).style.opacity = '0';
+        };
 
-            if (scrollPos < this._bannerPrimary.scrollRange.min) {
-                this._bannerPrimary.element.style.width = `${Math.max(
-                    bannerWidth,
-                    this._bannerPrimary.width.max
-                )}px`;
-                this._bannerPrimary.element.style.height = `${Math.max(
-                    bannerWidth,
-                    this._bannerPrimary.height.max
-                )}px`;
-                this._bannerPrimary.element.style.top = `${-this._bannerPrimary.offset.top}px`;
-            } else {
-                this._bannerPrimary.element.style.width = `${Math.min(
-                    bannerWidth,
-                    this._bannerPrimary.width.min
-                )}px`;
-                this._bannerPrimary.element.style.height = `${Math.min(
-                    bannerWidth,
-                    this._bannerPrimary.height.min
-                )}px`;
-                this._bannerPrimary.element.style.top = '0';
-            }
-            return;
-        }
+        const inRange = (getRelativeScroll: () => number) => {
+            const relativeScroll = getRelativeScroll();
 
-        const relativeScroll =
-            (scrollPos - this._bannerPrimary.scrollRange.min) /
-            (this._bannerPrimary.scrollRange.max - this._bannerPrimary.scrollRange.min);
-        this._bannerPrimary.element.style.width = `${
-            this._bannerPrimary.width.max -
-            relativeScroll * (this._bannerPrimary.width.max - this._bannerPrimary.width.min)
-        }px`;
-        this._bannerPrimary.element.style.height = `${
-            this._bannerPrimary.height.max -
-            relativeScroll * (this._bannerPrimary.height.max - this._bannerPrimary.height.min)
-        }px`;
-        this._bannerPrimary.element.style.top = `${
-            (relativeScroll - 1) * this._bannerPrimary.offset.top
-        }px`;
+            this._bannerPrimary.element.style.width = `${
+                this._bannerPrimary.width.min +
+                relativeScroll * (this._bannerPrimary.width.max - this._bannerPrimary.width.min)
+            }px`;
+            this._bannerPrimary.element.style.height = `${
+                this._bannerPrimary.height.min +
+                relativeScroll * (this._bannerPrimary.height.max - this._bannerPrimary.height.min)
+            }px`;
+            (this._bannerPrimary.element.childNodes[0] as HTMLElement).style.opacity = `${
+                (1 - relativeScroll) * 0.5
+            }`;
+        };
+
+        this._scroller.handleScroll(this._bannerPrimary.scrollRange, closeMin, closeMax, inRange);
     }
 }

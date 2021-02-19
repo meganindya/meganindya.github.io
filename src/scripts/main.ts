@@ -1,33 +1,27 @@
 import '../styles/main.scss';
 
 import { TScrollMsg } from './@types/main';
-import ScrollHandler from './scroll';
+import { ScrollHandler, Scroller } from './scroll';
 import Banners from './banner';
 
-let scrollHandler: ScrollHandler;
-let banners: Banners;
-
 window.addEventListener('load', () => {
-    window.scrollTo({ top: 0 });
+    const scroller = new Scroller();
+    const banners = new Banners(scroller);
 
-    banners = new Banners();
-
-    const objMap = {
+    const objMap: { [key: string]: { scrollUpdate: () => void } | null } = {
         'banner-primary': banners,
         'footer': null
     };
-    scrollHandler = new ScrollHandler((message: TScrollMsg) => {
+
+    const scrollHandler = new ScrollHandler((message: TScrollMsg) => {
         if (message.area === 'inside') {
             const target = objMap[message.target];
-            if (target !== null)
-                (objMap[message.target] as { scrollUpdate: () => void }).scrollUpdate();
+            if (target !== null) target.scrollUpdate();
         } else {
             const entering = objMap[message.entering];
-            if (entering !== null)
-                (objMap[message.entering] as { scrollUpdate: () => void }).scrollUpdate();
+            if (entering !== null) entering.scrollUpdate();
             const exiting = objMap[message.exiting];
-            if (exiting !== null)
-                (objMap[message.exiting] as { scrollUpdate: () => void }).scrollUpdate();
+            if (exiting !== null) exiting.scrollUpdate();
         }
     });
 
