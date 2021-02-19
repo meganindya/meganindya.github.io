@@ -94,7 +94,7 @@ export abstract class Scrollable {
         this._scrollRange = { min: 0, max: 0 };
         this._scroller = scroller;
 
-        this.initDom();
+        setTimeout(() => this.initDom());
     }
 
     public set scrollRange(scrollRange: TScrollRange) {

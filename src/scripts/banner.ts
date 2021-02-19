@@ -9,8 +9,6 @@ export default class BannerPrimary extends Scrollable {
     constructor(scroller: Scroller) {
         super(document.getElementById('banner-primary') as HTMLElement, scroller);
 
-        this._updateSizes();
-
         window.addEventListener('resize', () => {
             this._updateSizes();
             this.scrollUpdate();
@@ -18,6 +16,10 @@ export default class BannerPrimary extends Scrollable {
     }
 
     initDom(): void {
+        this._updateSizes();
+
+        this.element.style.width = `${this._dimensions.width.max}px`;
+        this.element.style.height = `${this._dimensions.height.max}px`;
         (this.element.childNodes[0] as HTMLElement).style.opacity = '0.5';
     }
 
