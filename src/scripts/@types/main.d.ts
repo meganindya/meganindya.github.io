@@ -3,7 +3,7 @@ export type TScrollRange = {
     max: number;
 };
 
-export type TTarget = 'banner-primary' | 'footer';
+export type TTarget = 'banner-primary' | 'banner-secondary' | 'footer';
 
 export type TScrollMsg =
     | { area: 'inside'; target: TTarget }

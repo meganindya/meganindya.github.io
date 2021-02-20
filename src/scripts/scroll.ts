@@ -1,8 +1,8 @@
 import { TTarget, TScrollRange, TScrollHandler } from './@types/main';
 
 export class ScrollHandler {
-    private _targets = ['banner-primary', 'footer'];
-    private _rangeEnds = [499, 3000];
+    private _targets = ['banner-primary', 'banner-secondary', 'footer'];
+    private _rangeEnds = [399, 999, 3000];
 
     private _prevTargetIndex = 0;
     private _targetMap: { [key: string]: TScrollRange } = {};
@@ -71,15 +71,23 @@ export class Scroller {
         scrollRange: TScrollRange,
         exitMin: () => void,
         exitMax: () => void,
-        // eslint-disable-next-line no-unused-vars
-        inRange: (relativeScroll: () => number) => void
+        inRange: (
+            // eslint-disable-next-line no-unused-vars
+            relativeScroll: () => number,
+            // eslint-disable-next-line no-unused-vars
+            regionRelativeScroll: (min: number, max: number) => number
+        ) => void
     ): void {
         if (this._scrollPos < scrollRange.min) {
             exitMin();
         } else if (this._scrollPos > scrollRange.max) {
             exitMax();
         } else {
-            inRange(() => this._relativeScroll(scrollRange));
+            inRange(
+                () => this._relativeScroll(scrollRange),
+                (min: number, max: number) =>
+                    (this._relativeScroll(scrollRange) - min) / (max - min)
+            );
         }
     }
 }
