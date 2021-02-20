@@ -7,10 +7,15 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = (env) => {
     const options = {
-        entry: './src/ts/main.ts',
+        entry: './src/scripts/main.ts',
+        output: {
+            filename: 'bundle.js',
+            path: path.resolve(__dirname, 'dist'),
+            pathinfo: false,
+            assetModuleFilename: 'assets/[name][ext]'
+        },
         plugins: [
             new HtmlWebpackPlugin({
-                cleanStaleWebpackAssets: false,
                 template: './src/views/index.ejs',
                 minify: {
                     removeComments: true,
@@ -18,7 +23,10 @@ module.exports = (env) => {
                     removeAttributeQuotes: true
                 }
             }),
-            new CleanWebpackPlugin()
+            new MiniCssExtractPlugin({
+                filename: 'style.css'
+            }),
+            new CleanWebpackPlugin({ cleanStaleWebpackAssets: false })
         ],
         module: {
             rules: [
@@ -60,7 +68,12 @@ module.exports = (env) => {
                 {
                     test: /\.scss$/,
                     use: [
-                        MiniCssExtractPlugin.loader,
+                        {
+                            loader: MiniCssExtractPlugin.loader,
+                            options: {
+                                publicPath: ''
+                            }
+                        },
                         {
                             loader: 'css-loader',
                             options: env.development
@@ -74,40 +87,18 @@ module.exports = (env) => {
                     ]
                 },
                 {
-                    test: /\.(pdf)$/,
-                    use: [
-                        {
-                            loader: 'file-loader',
-                            options: {
-                                name: '[name].[ext]',
-                                publicPath: 'res/'
-                            }
-                        }
-                    ]
-                },
-                {
-                    test: /\.(jpg|png|gif)$/,
-                    use: [
-                        {
-                            loader: 'file-loader',
-                            options: {
-                                name: (url) =>
-                                    url.slice(url.indexOf('img\\') + 4).replace(/\\/g, '/'),
-                                outputPath: (url) => `img/${url}`,
-                                publicPath: 'img/'
-                            }
-                        }
-                    ]
+                    test: /\.(jpg|png|gif|mp4)$/,
+                    type: 'asset/resource'
                 }
             ]
         },
         resolve: {
             extensions: ['.ts', '.js']
         },
-        output: {
-            filename: 'bundle.js',
-            path: path.resolve(__dirname, 'dist'),
-            pathinfo: false
+        performance: {
+            hints: false,
+            maxEntrypointSize: 512000,
+            maxAssetSize: 512000
         },
         optimization: {
             removeAvailableModules: false,
