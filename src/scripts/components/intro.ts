@@ -45,15 +45,10 @@ export default class Intro extends Scrollable {
     }
 
     private _updateSizes(): void {
-        const width = document.body.getBoundingClientRect().width;
         const height = window.innerHeight;
         const videoScaleFactor = 1.25;
 
         this._sizeRanges['video'] = {
-            width: {
-                min: width,
-                max: width * videoScaleFactor
-            },
             height: {
                 min: height,
                 max: height * videoScaleFactor
@@ -78,8 +73,10 @@ export default class Intro extends Scrollable {
     protected refreshSizes(): void {
         this._updateSizes();
 
-        this.elements['wrapper'].style.position = 'fixed';
-        this.elements['wrapper'].style.top = '0';
+        this.elements['wrapper'].style.width = `${document.body.offsetWidth}px`;
+        this.elements['wrapper'].style.height = `${600 + window.innerHeight}px`;
+
+        this.elements['video-wrap'].style.width = `${document.body.offsetWidth}px`;
 
         this.elements['photo-wrap'].style.top = '20';
         this.elements['photo-wrap'].style.opacity = '0';
@@ -91,10 +88,6 @@ export default class Intro extends Scrollable {
 
     public scrollUpdate(): void {
         const closeMin = () => {
-            this.elements['wrapper'].style.position = 'fixed';
-            this.elements['wrapper'].style.top = '0';
-
-            this.elements['video-wrap'].style.width = `${this._sizeRanges['video'].width.max}px`;
             this.elements['video-wrap'].style.height = `${this._sizeRanges['video'].height.max}px`;
             (this.elements['video-wrap'].childNodes[0] as HTMLElement).style.opacity = '0.75';
 
@@ -108,10 +101,6 @@ export default class Intro extends Scrollable {
         };
 
         const closeMax = () => {
-            this.elements['wrapper'].style.position = 'absolute';
-            this.elements['wrapper'].style.top = `${600}px`;
-
-            this.elements['video-wrap'].style.width = '0';
             this.elements['video-wrap'].style.height = '0';
             (this.elements['video-wrap'].childNodes[0] as HTMLElement).style.opacity = '0';
 
@@ -134,14 +123,6 @@ export default class Intro extends Scrollable {
             if (relativeScroll < 0.6) {
                 const regRelScroll = regionRelativeScroll(0, 0.6);
 
-                this.elements['wrapper'].style.position = 'fixed';
-                this.elements['wrapper'].style.top = '0';
-
-                this.elements['video-wrap'].style.width = `${
-                    this._sizeRanges['video'].width.max -
-                    regRelScroll *
-                        (this._sizeRanges['video'].width.max - this._sizeRanges['video'].width.min)
-                }px`;
                 this.elements['video-wrap'].style.height = `${
                     this._sizeRanges['video'].height.max -
                     regRelScroll *
@@ -163,10 +144,6 @@ export default class Intro extends Scrollable {
                     fontSizeMin + (1 - regRelScroll) * (fontSizeMax - fontSizeMin)
                 }px`;
             } else {
-                this.elements['wrapper'].style.position = 'absolute';
-                this.elements['wrapper'].style.top = `${600}px`;
-
-                this.elements['video-wrap'].style.width = '0';
                 this.elements['video-wrap'].style.height = '0';
                 (this.elements['video-wrap'].childNodes[0] as HTMLElement).style.opacity = '0';
             }

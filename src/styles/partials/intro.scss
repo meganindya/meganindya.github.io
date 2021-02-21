@@ -1,17 +1,17 @@
 #intro-wrapper {
-  align-items: center;
-  height: 100vh;
+  position: relative;
+  top: 0;
 
   #intro-container {
-    position: relative;
-    height: 100%;
+    position: sticky;
+    top: 0;
+    height: 100vh;
 
     #intro-video {
       position: absolute;
-      top: 50%;
+      top: 0;
       left: 50%;
-      transform: translate(-50%, -50%);
-      width: 100vw;
+      transform: translateX(-50%);
       height: 100vh;
       background: $dark;
 
