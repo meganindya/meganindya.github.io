@@ -45,18 +45,18 @@ export default class Intro extends Scrollable {
     }
 
     private _updateSizes(): void {
-        const windowWidth = window.innerWidth;
-        const windowHeight = window.innerHeight;
+        const width = document.body.getBoundingClientRect().width;
+        const height = window.innerHeight;
         const videoScaleFactor = 1.25;
 
         this._sizeRanges['video'] = {
             width: {
-                min: windowWidth,
-                max: windowWidth * videoScaleFactor
+                min: width,
+                max: width * videoScaleFactor
             },
             height: {
-                min: windowHeight,
-                max: windowHeight * videoScaleFactor
+                min: height,
+                max: height * videoScaleFactor
             }
         };
 
@@ -111,8 +111,8 @@ export default class Intro extends Scrollable {
             this.elements['wrapper'].style.position = 'absolute';
             this.elements['wrapper'].style.top = `${600}px`;
 
-            this.elements['video-wrap'].style.width = `${this._sizeRanges['video'].width.min}px`;
-            this.elements['video-wrap'].style.height = `${this._sizeRanges['video'].height.min}px`;
+            this.elements['video-wrap'].style.width = '0';
+            this.elements['video-wrap'].style.height = '0';
             (this.elements['video-wrap'].childNodes[0] as HTMLElement).style.opacity = '0';
 
             this.elements['photo-wrap'].style.top = 'calc(50% + 60px)';
@@ -165,6 +165,10 @@ export default class Intro extends Scrollable {
             } else {
                 this.elements['wrapper'].style.position = 'absolute';
                 this.elements['wrapper'].style.top = `${600}px`;
+
+                this.elements['video-wrap'].style.width = '0';
+                this.elements['video-wrap'].style.height = '0';
+                (this.elements['video-wrap'].childNodes[0] as HTMLElement).style.opacity = '0';
             }
         };
 
