@@ -2,7 +2,7 @@ import { TTarget, TRange, TScrollHandler } from './@types/main';
 
 export class ScrollHandler {
     private _targets = ['intro', 'footer'];
-    private _rangeEnds = [599, 3000];
+    private _rangeEnds = [999, 3000];
 
     private _prevTargetIndex = 0;
     private _targetMap: { [key: string]: TRange } = {};

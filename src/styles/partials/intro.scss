@@ -1,8 +1,6 @@
 #intro-wrapper {
-  position: fixed;
-  top: 2.5rem;
   align-items: center;
-  height: calc(100vh - 2 * 2.5rem);
+  height: 100vh;
 
   #intro-container {
     position: relative;
