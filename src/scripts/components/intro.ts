@@ -27,6 +27,7 @@ export default class Intro extends Scrollable {
     constructor(scroller: Scroller) {
         super(
             {
+                'wrapper': document.getElementById('intro-wrapper') as HTMLElement,
                 'container': document.getElementById('intro-container') as HTMLElement,
                 'video-wrap': document.getElementById('intro-video') as HTMLElement,
                 'photo-wrap': document.getElementById('intro-photo-wrapper') as HTMLElement,
@@ -77,6 +78,9 @@ export default class Intro extends Scrollable {
     protected refreshSizes(): void {
         this._updateSizes();
 
+        this.elements['wrapper'].style.position = 'fixed';
+        this.elements['wrapper'].style.top = '0';
+
         this.elements['photo-wrap'].style.top = '20';
         this.elements['photo-wrap'].style.opacity = '0';
 
@@ -87,6 +91,9 @@ export default class Intro extends Scrollable {
 
     public scrollUpdate(): void {
         const closeMin = () => {
+            this.elements['wrapper'].style.position = 'fixed';
+            this.elements['wrapper'].style.top = '0';
+
             this.elements['video-wrap'].style.width = `${this._sizeRanges['video'].width.max}px`;
             this.elements['video-wrap'].style.height = `${this._sizeRanges['video'].height.max}px`;
             (this.elements['video-wrap'].childNodes[0] as HTMLElement).style.opacity = '0.75';
@@ -101,6 +108,9 @@ export default class Intro extends Scrollable {
         };
 
         const closeMax = () => {
+            this.elements['wrapper'].style.position = 'absolute';
+            this.elements['wrapper'].style.top = `${600}px`;
+
             this.elements['video-wrap'].style.width = `${this._sizeRanges['video'].width.min}px`;
             this.elements['video-wrap'].style.height = `${this._sizeRanges['video'].height.min}px`;
             (this.elements['video-wrap'].childNodes[0] as HTMLElement).style.opacity = '0';
@@ -121,30 +131,41 @@ export default class Intro extends Scrollable {
         ) => {
             const relativeScroll = getRelativeScroll();
 
-            this.elements['video-wrap'].style.width = `${
-                this._sizeRanges['video'].width.min +
-                relativeScroll *
-                    (this._sizeRanges['video'].width.max - this._sizeRanges['video'].width.min)
-            }px`;
-            this.elements['video-wrap'].style.height = `${
-                this._sizeRanges['video'].height.min +
-                relativeScroll *
-                    (this._sizeRanges['video'].height.max - this._sizeRanges['video'].height.min)
-            }px`;
-            (this.elements['video-wrap'].childNodes[0] as HTMLElement).style.opacity = `${
-                (1 - relativeScroll) * 0.75
-            }`;
+            if (relativeScroll < 0.6) {
+                const regRelScroll = regionRelativeScroll(0, 0.6);
 
-            this.elements['photo-wrap'].style.top = `
-                calc(${20 + relativeScroll * 30}% + ${relativeScroll * 60}px)`;
-            this.elements['photo-wrap'].style.opacity = `${regionRelativeScroll(0.5, 1)}`;
+                this.elements['wrapper'].style.position = 'fixed';
+                this.elements['wrapper'].style.top = '0';
 
-            this.elements['name'].style.top = `calc(50% + ${relativeScroll * 144}px)`;
-            const fontSizeMin = this._sizeRanges['name'][this._widthRangeStr].min;
-            const fontSizeMax = this._sizeRanges['name'][this._widthRangeStr].max;
-            this.elements['name'].style.fontSize = `${
-                fontSizeMin + (1 - relativeScroll) * (fontSizeMax - fontSizeMin)
-            }px`;
+                this.elements['video-wrap'].style.width = `${
+                    this._sizeRanges['video'].width.max -
+                    regRelScroll *
+                        (this._sizeRanges['video'].width.max - this._sizeRanges['video'].width.min)
+                }px`;
+                this.elements['video-wrap'].style.height = `${
+                    this._sizeRanges['video'].height.max -
+                    regRelScroll *
+                        (this._sizeRanges['video'].height.max -
+                            this._sizeRanges['video'].height.min)
+                }px`;
+                (this.elements['video-wrap'].childNodes[0] as HTMLElement).style.opacity = `${
+                    (1 - regRelScroll) * 0.75
+                }`;
+
+                this.elements['photo-wrap'].style.top = `
+                calc(${20 + regRelScroll * 30}% + ${regRelScroll * 60}px)`;
+                this.elements['photo-wrap'].style.opacity = `${regionRelativeScroll(0.3, 0.6)}`;
+
+                this.elements['name'].style.top = `calc(50% + ${regRelScroll * 144}px)`;
+                const fontSizeMin = this._sizeRanges['name'][this._widthRangeStr].min;
+                const fontSizeMax = this._sizeRanges['name'][this._widthRangeStr].max;
+                this.elements['name'].style.fontSize = `${
+                    fontSizeMin + (1 - regRelScroll) * (fontSizeMax - fontSizeMin)
+                }px`;
+            } else {
+                this.elements['wrapper'].style.position = 'absolute';
+                this.elements['wrapper'].style.top = `${600}px`;
+            }
         };
 
         this.scroller.handleScroll(this.scrollRange, closeMin, closeMax, inRange);
