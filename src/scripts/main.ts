@@ -2,17 +2,15 @@ import '../styles/main.scss';
 
 import { TScrollMsg } from './@types/main';
 import { ScrollHandler, Scroller } from './scroll';
-import { BannerPrimary, BannerSecondary } from './banner';
+import Intro from './intro';
 
 window.addEventListener('load', () => {
     const scroller = new Scroller();
-    const bannerPrimary = new BannerPrimary(scroller);
-    const bannerSecondary = new BannerSecondary(scroller);
+    const intro = new Intro(scroller);
 
     const objMap: { [key: string]: { scrollUpdate: () => void } | null } = {
-        'banner-primary': bannerPrimary,
-        'banner-secondary': bannerSecondary,
-        'footer': null
+        intro,
+        footer: null
     };
 
     const scrollHandler = new ScrollHandler((message: TScrollMsg) => {
@@ -27,6 +25,5 @@ window.addEventListener('load', () => {
         }
     });
 
-    bannerPrimary.scrollRange = scrollHandler.getRange('banner-primary');
-    bannerSecondary.scrollRange = scrollHandler.getRange('banner-secondary');
+    intro.scrollRange = scrollHandler.getRange('intro');
 });
