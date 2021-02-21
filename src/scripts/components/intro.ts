@@ -1,5 +1,5 @@
-import { TRange } from './@types/main';
-import { Scroller, Scrollable } from './scroll';
+import { TRange } from '../@types/main';
+import { Scroller, Scrollable } from '../scroll';
 
 const nameSizes = {
     '910-1520': {

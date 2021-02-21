@@ -2,7 +2,7 @@ import '../styles/main.scss';
 
 import { TScrollMsg } from './@types/main';
 import { ScrollHandler, Scroller } from './scroll';
-import Intro from './intro';
+import Intro from './components/intro';
 
 window.addEventListener('load', () => {
     const scroller = new Scroller();
