@@ -1,9 +1,9 @@
-export type TScrollRange = {
+export type TRange = {
     min: number;
     max: number;
 };
 
-export type TTarget = 'banner-primary' | 'banner-secondary' | 'footer';
+export type TTarget = 'intro' | 'footer';
 
 export type TScrollMsg =
     | { area: 'inside'; target: TTarget }

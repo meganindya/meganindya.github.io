@@ -1,11 +1,11 @@
-import { TTarget, TScrollRange, TScrollHandler } from './@types/main';
+import { TTarget, TRange, TScrollHandler } from './@types/main';
 
 export class ScrollHandler {
-    private _targets = ['banner-primary', 'banner-secondary', 'footer'];
-    private _rangeEnds = [399, 999, 3000];
+    private _targets = ['intro', 'footer'];
+    private _rangeEnds = [599, 3000];
 
     private _prevTargetIndex = 0;
-    private _targetMap: { [key: string]: TScrollRange } = {};
+    private _targetMap: { [key: string]: TRange } = {};
     private _onScroll: TScrollHandler;
 
     constructor(onScroll: TScrollHandler) {
@@ -22,8 +22,8 @@ export class ScrollHandler {
         window.addEventListener('scroll', () => this.monitor());
     }
 
-    public getRange(target: TTarget): TScrollRange {
-        return this._targetMap[target] as TScrollRange;
+    public getRange(target: TTarget): TRange {
+        return this._targetMap[target] as TRange;
     }
 
     public monitor(): void {
@@ -63,12 +63,12 @@ export class Scroller {
         });
     }
 
-    private _relativeScroll(scrollRange: TScrollRange) {
+    private _relativeScroll(scrollRange: TRange) {
         return (this._scrollPos - scrollRange.min) / (scrollRange.max - scrollRange.min);
     }
 
     public handleScroll(
-        scrollRange: TScrollRange,
+        scrollRange: TRange,
         exitMin: () => void,
         exitMax: () => void,
         inRange: (
@@ -93,23 +93,23 @@ export class Scroller {
 }
 
 export abstract class Scrollable {
-    protected element: HTMLElement;
-    private _scrollRange: TScrollRange;
+    protected elements: { [key: string]: HTMLElement };
+    private _scrollRange: TRange;
     private _scroller: Scroller;
 
-    constructor(element: HTMLElement, scroller: Scroller) {
-        this.element = element;
+    constructor(elements: { [key: string]: HTMLElement }, scroller: Scroller) {
+        this.elements = elements;
         this._scrollRange = { min: 0, max: 0 };
         this._scroller = scroller;
 
-        setTimeout(() => this.initDom());
+        setTimeout(() => this.refreshSizes());
     }
 
-    public set scrollRange(scrollRange: TScrollRange) {
+    public set scrollRange(scrollRange: TRange) {
         this._scrollRange = scrollRange;
     }
 
-    public get scrollRange(): TScrollRange {
+    public get scrollRange(): TRange {
         return this._scrollRange;
     }
 
@@ -117,7 +117,7 @@ export abstract class Scrollable {
         return this._scroller;
     }
 
-    protected abstract initDom(): void;
+    protected abstract refreshSizes(): void;
 
     public abstract scrollUpdate(): void;
 }
