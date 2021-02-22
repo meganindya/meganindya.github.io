@@ -87,17 +87,17 @@ export default class Ambition extends Scrollable {
             };
 
             if (index === 0) {
-                fadeInHeader(0, 0.15);
-                fadeInP1(0.15, 0.3);
-                fadeInP2(0.3, 0.45);
-                fadeOutCard(0.85, 1);
+                if (currOffset >= 0 && currOffset < 0.15) fadeInHeader(0, 0.15);
+                if (currOffset >= 0.15 && currOffset < 0.3) fadeInP1(0.15, 0.3);
+                if (currOffset >= 0.3 && currOffset < 0.45) fadeInP2(0.3, 0.45);
+                if (currOffset >= 0.85 && currOffset < 1) fadeOutCard(0.85, 1);
             } else {
-                fadeInCard(0, 0.2);
-                fadeInHeader(0.2, 0.35);
-                fadeInP1(0.35, 0.5);
-                fadeInP2(0.5, 0.65);
+                if (currOffset >= 0 && currOffset < 0.2) fadeInCard(0, 0.2);
+                if (currOffset >= 0.2 && currOffset < 0.35) fadeInHeader(0.2, 0.35);
+                if (currOffset >= 0.35 && currOffset < 0.5) fadeInP1(0.35, 0.5);
+                if (currOffset >= 0.5 && currOffset < 0.65) fadeInP2(0.5, 0.65);
                 if (index !== 4) {
-                    fadeOutCard(0.85, 1);
+                    if (currOffset >= 0.85 && currOffset < 1) fadeOutCard(0.85, 1);
                 }
             }
         };
