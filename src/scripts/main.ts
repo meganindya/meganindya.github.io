@@ -4,15 +4,18 @@ import { TScrollMsg } from './@types/main';
 import { ScrollHandler, Scroller } from './scroll';
 import Intro from './components/intro';
 import Ambition from './components/ambition';
+import Exploration from './components/exploration';
 
 window.addEventListener('load', () => {
     const scroller = new Scroller();
     const intro = new Intro(scroller);
     const ambition = new Ambition(scroller);
+    const exploration = new Exploration(scroller);
 
     const objMap: { [key: string]: { scrollUpdate: () => void } | null } = {
         intro,
         ambition,
+        exploration,
         footer: null
     };
 
@@ -30,4 +33,5 @@ window.addEventListener('load', () => {
 
     intro.scrollRange = scrollHandler.getRange('intro');
     ambition.scrollRange = scrollHandler.getRange('ambition');
+    exploration.scrollRange = scrollHandler.getRange('exploration');
 });
