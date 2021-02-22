@@ -37,11 +37,6 @@ export default class Intro extends Scrollable {
         );
 
         this._sizeRanges['name'] = nameSizes;
-
-        window.addEventListener('resize', () => {
-            this.refreshSizes();
-            this.scrollUpdate();
-        });
     }
 
     private _updateSizes(): void {
@@ -74,7 +69,7 @@ export default class Intro extends Scrollable {
         this._updateSizes();
 
         this.elements['wrapper'].style.width = `${document.body.offsetWidth}px`;
-        this.elements['wrapper'].style.height = `${600 + window.innerHeight}px`;
+        this.elements['wrapper'].style.height = `${2 * window.innerHeight}px`;
 
         this.elements['video-wrap'].style.width = `${document.body.offsetWidth}px`;
 
@@ -113,15 +108,15 @@ export default class Intro extends Scrollable {
             }px`;
         };
 
-        const inRange = (
-            getRelativeScroll: () => number,
+        const inRange = (utils: {
+            relativeScroll?: () => number;
             // eslint-disable-next-line no-unused-vars
-            regionRelativeScroll: (min: number, max: number) => number
-        ) => {
-            const relativeScroll = getRelativeScroll();
+            regionRelativeScroll?: (min: number, max: number) => number;
+        }) => {
+            const relativeScroll = utils.relativeScroll?.() as number;
 
-            if (relativeScroll < 0.6) {
-                const regRelScroll = regionRelativeScroll(0, 0.6);
+            if (relativeScroll < 0.45) {
+                const regRelScroll = utils.regionRelativeScroll?.(0, 0.45) as number;
 
                 this.elements['video-wrap'].style.height = `${
                     this._sizeRanges['video'].height.max -
@@ -134,8 +129,9 @@ export default class Intro extends Scrollable {
                 }`;
 
                 this.elements['photo-wrap'].style.top = `
-                calc(${20 + regRelScroll * 30}% + ${regRelScroll * 60}px)`;
-                this.elements['photo-wrap'].style.opacity = `${regionRelativeScroll(0.3, 0.6)}`;
+                    calc(${20 + regRelScroll * 30}% + ${regRelScroll * 60}px)`;
+                this.elements['photo-wrap'].style.opacity = `
+                    ${utils.regionRelativeScroll?.(0.25, 0.45) as number}`;
 
                 this.elements['name'].style.top = `calc(50% + ${regRelScroll * 144}px)`;
                 const fontSizeMin = this._sizeRanges['name'][this._widthRangeStr].min;

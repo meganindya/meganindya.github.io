@@ -1,5 +1,6 @@
 #intro-wrapper {
-  position: relative;
+  position: absolute;
+  z-index: 500;
   top: 0;
 
   #intro-container {
