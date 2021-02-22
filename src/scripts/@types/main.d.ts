@@ -3,7 +3,7 @@ export type TRange = {
     max: number;
 };
 
-export type TTarget = 'intro' | 'ambition' | 'exploration' | 'footer';
+export type TTarget = 'intro' | 'ambition' | 'exploration' | 'programming' | 'footer';
 
 export type TScrollMsg =
     | { area: 'inside'; target: TTarget }
