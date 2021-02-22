@@ -10,6 +10,6 @@ export default class Exploration extends Scrollable {
     }
 
     public scrollUpdate(): void {
-        console.log(this.scrollRange);
+        1;
     }
 }
