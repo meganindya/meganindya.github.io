@@ -1,0 +1,74 @@
+#projects-wrapper {
+  position: absolute;
+  z-index: 200;
+  top: 2100vh;
+  width: 100%;
+  height: 1900vh;
+
+  #projects-header {
+    position: sticky;
+    z-index: 150;
+    top: 0;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+
+    h1 {
+      font-size: 2rem;
+    }
+  }
+
+  #projects-container {
+    position: absolute;
+    top: 200vh;
+    height: 1700vh;
+
+    #project-cards {
+      position: sticky;
+      z-index: 500;
+      top: 0;
+      width: 100%;
+      height: 100vh;
+
+      .project-card {
+        position: absolute;
+        top: 0;
+        width: inherit;
+        height: inherit;
+        perspective: 1000px;
+        perspective-origin: center;
+        transform-style: preserve-3d;
+        transition: transform 1s ease;
+        visibility: hidden;
+
+        .project-hero {
+          position: absolute;
+          top: 10vh;
+          display: grid;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          height: 80vh;
+          background: rgba(255, 0, 0, 0.25);
+          transform: rotateY(90deg);
+        }
+
+        .project-label {
+          position: absolute;
+          bottom: 0;
+          display: grid;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          height: 10vh;
+
+          p {
+            margin: 0;
+            font-size: 1.25rem;
+          }
+        }
+      }
+    }
+  }
+}

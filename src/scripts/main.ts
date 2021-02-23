@@ -6,6 +6,7 @@ import Intro from './components/intro';
 import Ambition from './components/ambition';
 import Exploration from './components/exploration';
 import Programming from './components/programming';
+import Projects from './components/projects';
 
 window.addEventListener('load', () => {
     const scroller = new Scroller();
@@ -13,12 +14,14 @@ window.addEventListener('load', () => {
     const ambition = new Ambition(scroller);
     const exploration = new Exploration(scroller);
     const programming = new Programming(scroller);
+    const projects = new Projects(scroller);
 
     const objMap: { [key: string]: { scrollUpdate: () => void } | null } = {
         intro,
         ambition,
         exploration,
         programming,
+        projects,
         footer: null
     };
 
@@ -38,4 +41,5 @@ window.addEventListener('load', () => {
     ambition.scrollRange = scrollHandler.getRange('ambition');
     exploration.scrollRange = scrollHandler.getRange('exploration');
     programming.scrollRange = scrollHandler.getRange('programming');
+    projects.scrollRange = scrollHandler.getRange('projects');
 });
