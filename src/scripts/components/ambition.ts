@@ -21,7 +21,7 @@ export default class Ambition extends Scrollable {
         this._updateSizes();
 
         [...document.getElementsByClassName('ambition-card-img')].forEach(
-            (img) => ((img as HTMLElement).style.width = `${document.body.offsetWidth / 2}px`)
+            (img) => ((img as HTMLElement).style.maxWidth = `${document.body.offsetWidth / 2}px`)
         );
     }
 
