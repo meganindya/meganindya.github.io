@@ -53,14 +53,14 @@ export class ScrollHandler {
                     entering: this._targets[this._prevTargetIndex - 1] as TTarget,
                     exiting: this._targets[this._prevTargetIndex] as TTarget
                 });
-                this._prevTargetIndex--;
+                this._prevTargetIndex = Math.max(this._prevTargetIndex - 1, 0);
             } else {
                 this._onScroll({
                     area: 'moving',
                     entering: this._targets[this._prevTargetIndex + 1] as TTarget,
                     exiting: this._targets[this._prevTargetIndex] as TTarget
                 });
-                this._prevTargetIndex++;
+                this._prevTargetIndex = Math.min(this._prevTargetIndex + 1, 5);
             }
         }
     }
