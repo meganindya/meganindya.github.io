@@ -9,14 +9,21 @@
   #exploration-header {
     position: sticky;
     top: 20vh;
-    display: grid;
-    align-items: center;
+    display: flex;
+    flex-direction: row;
     justify-content: center;
     height: 80vh;
 
-    h1 {
-      margin: 0;
-      padding-bottom: 20vh;
+    .container {
+      display: grid;
+      align-items: center;
+      justify-content: center;
+      height: inherit;
+
+      h1 {
+        margin: 0;
+        padding-bottom: 20vh;
+      }
     }
   }
 
