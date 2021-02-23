@@ -28,7 +28,7 @@ export class ScrollHandler {
         for (let i = 0; i < this._targets.length; i++) {
             this._targetMap[this._targets[i]] = {
                 min: lastStart,
-                max: lastStart + this._rangeEnds[i] * window.innerHeight - 1
+                max: lastStart + this._rangeEnds[i] * window.screen.height - 1
             };
             lastStart = this._targetMap[this._targets[i]].max + 1;
         }
