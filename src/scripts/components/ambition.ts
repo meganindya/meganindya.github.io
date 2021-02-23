@@ -26,7 +26,7 @@ export default class Ambition extends Scrollable {
     }
 
     public scrollUpdate(): void {
-        const windowHeight = window.innerHeight;
+        const windowHeight = window.screen.height;
 
         const closeMin = () => {
             this.elements['header'].style.position = 'sticky';
@@ -69,18 +69,34 @@ export default class Ambition extends Scrollable {
 
             const fadeInCard = (min: number, max: number) => {
                 operatingCards.curr.style.opacity = `${relativePos(min, max)}`;
+                ((operatingCards.curr.childNodes[0] as HTMLElement)
+                    .childNodes[0] as HTMLElement).style.opacity = '0';
+                ((operatingCards.curr.childNodes[0] as HTMLElement)
+                    .childNodes[1] as HTMLElement).style.opacity = '0';
+                ((operatingCards.curr.childNodes[0] as HTMLElement)
+                    .childNodes[2] as HTMLElement).style.opacity = '0';
             };
             const fadeInHeader = (min: number, max: number) => {
+                operatingCards.curr.style.opacity = '1';
                 ((operatingCards.curr.childNodes[0] as HTMLElement)
                     .childNodes[0] as HTMLElement).style.opacity = `${relativePos(min, max)}`;
+                ((operatingCards.curr.childNodes[0] as HTMLElement)
+                    .childNodes[1] as HTMLElement).style.opacity = '0';
             };
             const fadeInP1 = (min: number, max: number) => {
                 ((operatingCards.curr.childNodes[0] as HTMLElement)
+                    .childNodes[0] as HTMLElement).style.opacity = '1';
+                ((operatingCards.curr.childNodes[0] as HTMLElement)
                     .childNodes[1] as HTMLElement).style.opacity = `${relativePos(min, max)}`;
+                ((operatingCards.curr.childNodes[0] as HTMLElement)
+                    .childNodes[2] as HTMLElement).style.opacity = '0';
             };
             const fadeInP2 = (min: number, max: number) => {
                 ((operatingCards.curr.childNodes[0] as HTMLElement)
+                    .childNodes[1] as HTMLElement).style.opacity = '1';
+                ((operatingCards.curr.childNodes[0] as HTMLElement)
                     .childNodes[2] as HTMLElement).style.opacity = `${relativePos(min, max)}`;
+                operatingCards.curr.style.opacity = '1';
             };
             const fadeOutCard = (min: number, max: number) => {
                 operatingCards.curr.style.opacity = `${1 - relativePos(min, max)}`;
