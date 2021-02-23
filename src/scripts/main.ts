@@ -28,12 +28,12 @@ window.addEventListener('load', () => {
     const scrollHandler = new ScrollHandler((message: TScrollMsg) => {
         if (message.area === 'inside') {
             const target = objMap[message.target];
-            if (target !== null) target.scrollUpdate();
+            if (target) target.scrollUpdate();
         } else {
             const entering = objMap[message.entering];
-            if (entering !== null) entering.scrollUpdate();
+            if (entering) entering.scrollUpdate();
             const exiting = objMap[message.exiting];
-            if (exiting !== null) exiting.scrollUpdate();
+            if (exiting) exiting.scrollUpdate();
         }
     });
 

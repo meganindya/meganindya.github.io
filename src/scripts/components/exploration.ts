@@ -2,7 +2,12 @@ import { Scrollable, Scroller } from '../scroll';
 
 export default class Exploration extends Scrollable {
     constructor(scroller: Scroller) {
-        super({}, scroller);
+        super(
+            {
+                wrapper: document.getElementById('exploration-wrapper') as HTMLElement
+            },
+            scroller
+        );
     }
 
     protected refreshSizes(): void {
