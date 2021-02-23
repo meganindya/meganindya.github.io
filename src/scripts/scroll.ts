@@ -28,7 +28,7 @@ export class ScrollHandler {
         for (let i = 0; i < this._targets.length; i++) {
             this._targetMap[this._targets[i]] = {
                 min: lastStart,
-                max: lastStart + this._rangeEnds[i] * window.screen.height - 1
+                max: lastStart + this._rangeEnds[i] * window.innerHeight - 1
             };
             lastStart = this._targetMap[this._targets[i]].max + 1;
         }
@@ -53,14 +53,14 @@ export class ScrollHandler {
                     entering: this._targets[this._prevTargetIndex - 1] as TTarget,
                     exiting: this._targets[this._prevTargetIndex] as TTarget
                 });
-                this._prevTargetIndex--;
+                this._prevTargetIndex = Math.max(this._prevTargetIndex - 1, 0);
             } else {
                 this._onScroll({
                     area: 'moving',
                     entering: this._targets[this._prevTargetIndex + 1] as TTarget,
                     exiting: this._targets[this._prevTargetIndex] as TTarget
                 });
-                this._prevTargetIndex++;
+                this._prevTargetIndex = Math.min(this._prevTargetIndex + 1, 5);
             }
         }
     }

@@ -26,7 +26,7 @@ export default class Ambition extends Scrollable {
     }
 
     public scrollUpdate(): void {
-        const windowHeight = window.screen.height;
+        const windowHeight = window.innerHeight;
 
         const closeMin = () => {
             this.elements['header'].style.position = 'sticky';

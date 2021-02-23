@@ -40,7 +40,7 @@ export default class Intro extends Scrollable {
     }
 
     private _updateSizes(): void {
-        const height = window.screen.height;
+        const height = window.innerHeight;
         const videoScaleFactor = 1.25;
 
         this._sizeRanges['video'] = {
@@ -69,7 +69,7 @@ export default class Intro extends Scrollable {
         this._updateSizes();
 
         this.elements['wrapper'].style.width = `${document.body.offsetWidth}px`;
-        this.elements['wrapper'].style.height = `${2 * window.screen.height}px`;
+        this.elements['wrapper'].style.height = `${2 * window.innerHeight}px`;
 
         this.elements['video-wrap'].style.width = `${document.body.offsetWidth}px`;
 
