@@ -36,13 +36,13 @@
         }
 
         &:nth-of-type(1) {
-          background-image: url(../assets/images/vb.png);
+          background-image: url(../assets/images/programming/vb.png);
           background-size: cover;
           background-position: 0 0;
         }
 
         &:nth-of-type(2) {
-          background-image: url(../assets/images/bluej.png);
+          background-image: url(../assets/images/programming/bluej.png);
           background-size: cover;
           background-position: 0 0;
 
@@ -52,19 +52,19 @@
         }
 
         &:nth-of-type(3) {
-          background-image: url(../assets/images/dsa.jpg);
+          background-image: url(../assets/images/programming/dsa.jpg);
           background-size: cover;
           background-position: 0 0;
         }
 
         &:nth-of-type(4) {
-          background-image: url(../assets/images/terminal.jpg);
+          background-image: url(../assets/images/programming/terminal.jpg);
           background-size: cover;
           background-position: 0 0;
         }
 
         &:nth-of-type(5) {
-          background-image: url(../assets/images/programming.jpg);
+          background-image: url(../assets/images/programming/programming.jpg);
           background-size: cover;
           background-position: 0 0;
         }
@@ -166,112 +166,112 @@
             height: 3rem;
 
             &.js {
-              background-image: url(../assets/icons/js.svg);
+              background-image: url(../assets/images/programming/logos/js.svg);
               background-size: cover;
             }
 
             &.ts {
-              background-image: url(../assets/icons/ts.svg);
+              background-image: url(../assets/images/programming/logos/ts.svg);
               background-size: cover;
             }
 
             &.java {
-              background-image: url(../assets/icons/java.svg);
+              background-image: url(../assets/images/programming/logos/java.svg);
               background-size: cover;
             }
 
             &.c {
-              background-image: url(../assets/icons/c.svg);
+              background-image: url(../assets/images/programming/logos/c.svg);
               background-size: cover;
             }
 
             &.js {
-              background-image: url(../assets/icons/js.svg);
+              background-image: url(../assets/images/programming/logos/js.svg);
               background-size: cover;
             }
 
             &.cpp {
-              background-image: url(../assets/icons/cpp.svg);
+              background-image: url(../assets/images/programming/logos/cpp.svg);
               background-size: cover;
             }
 
             &.python {
-              background-image: url(../assets/icons/python.svg);
+              background-image: url(../assets/images/programming/logos/python.svg);
               background-size: cover;
             }
 
             &.php {
-              background-image: url(../assets/icons/php.svg);
+              background-image: url(../assets/images/programming/logos/php.svg);
               background-size: cover;
             }
 
             &.html {
-              background-image: url(../assets/icons/html.svg);
+              background-image: url(../assets/images/programming/logos/html.svg);
               background-size: cover;
             }
 
             &.css {
-              background-image: url(../assets/icons/css.svg);
+              background-image: url(../assets/images/programming/logos/css.svg);
               background-size: cover;
             }
 
             &.react {
-              background-image: url(../assets/icons/react.svg);
+              background-image: url(../assets/images/programming/logos/react.svg);
               background-size: cover;
             }
 
             &.angular {
-              background-image: url(../assets/icons/angular.svg);
+              background-image: url(../assets/images/programming/logos/angular.svg);
               background-size: cover;
             }
 
             &.jquery {
-              background-image: url(../assets/icons/jquery.png);
+              background-image: url(../assets/images/programming/logos/jquery.png);
               background-size: cover;
             }
 
             &.bootstrap {
-              background-image: url(../assets/icons/bootstrap.png);
+              background-image: url(../assets/images/programming/logos/bootstrap.png);
               background-size: cover;
             }
 
             &.ejs {
-              background-image: url(../assets/icons/ejs.svg);
+              background-image: url(../assets/images/programming/logos/ejs.svg);
               background-size: cover;
             }
 
             &.scss {
-              background-image: url(../assets/icons/scss.svg);
+              background-image: url(../assets/images/programming/logos/scss.svg);
               background-size: cover;
             }
 
             &.webpack {
-              background-image: url(../assets/icons/webpack.svg);
+              background-image: url(../assets/images/programming/logos/webpack.svg);
               background-size: cover;
             }
 
             &.gulp {
-              background-image: url(../assets/icons/gulp.svg);
+              background-image: url(../assets/images/programming/logos/gulp.svg);
               background-size: cover;
             }
 
             &.graphql {
-              background-image: url(../assets/icons/graphql.svg);
+              background-image: url(../assets/images/programming/logos/graphql.svg);
               background-size: cover;
             }
 
             &.jest {
-              background-image: url(../assets/icons/jest.svg);
+              background-image: url(../assets/images/programming/logos/jest.svg);
               background-size: cover;
             }
 
             &.mocha {
-              background-image: url(../assets/icons/mocha.svg);
+              background-image: url(../assets/images/programming/logos/mocha.svg);
               background-size: cover;
             }
 
             &.pwa {
-              background-image: url(../assets/icons/pwa.png);
+              background-image: url(../assets/images/programming/logos/pwa.png);
               background-size: cover;
             }
           }
