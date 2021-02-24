@@ -5,7 +5,7 @@ export default class Programming extends Scrollable {
         super(
             {
                 'wrapper': document.getElementById('programming-wrapper') as HTMLElement,
-                'background': document.getElementById('programming-background') as HTMLElement,
+                'backgrounds': document.getElementById('programming-backgrounds') as HTMLElement,
                 'container': document.getElementById('programming-container') as HTMLElement,
                 'programming-cards': document.getElementById('programming-cards') as HTMLElement
             },
@@ -33,19 +33,19 @@ export default class Programming extends Scrollable {
                 (item) => ((item as HTMLElement).style.visibility = 'hidden')
             );
 
-            const background = this.elements['background'];
-            const backgrounds = ['#f00', '#0f0', '#00f', '#ff0', '#f0f'];
+            const backgrounds = [...this.elements['backgrounds'].childNodes] as HTMLElement[];
+            backgrounds.forEach((background) => (background.style.visibility = 'hidden'));
 
             const handleCard = (index: number, min: number, max: number) => {
-                background.style.background = `${backgrounds[index]}`;
-                background.style.backgroundSize = 'cover';
+                backgrounds[index].style.visibility = 'visible';
+
                 const elem = this.elements['programming-cards'].childNodes[index] as HTMLElement;
                 elem.style.visibility = 'visible';
 
                 const relativePos = (vhScrollPos - min) / (max - min);
                 if (relativePos >= 0 && relativePos < 0.3) {
                     const regionRelativePos = (relativePos - 0) / (0.3 - 0);
-                    background.style.opacity = `${regionRelativePos}`;
+                    backgrounds[index].style.opacity = `${regionRelativePos}`;
                     elem.style.top = `${65 - regionRelativePos * 15}%`;
                     elem.style.opacity = `${regionRelativePos}`;
                 } else if (relativePos >= 0.7 && relativePos < 1) {
@@ -53,16 +53,16 @@ export default class Programming extends Scrollable {
                     elem.style.top = `${50 - regionRelativePos * 15}%`;
                     elem.style.opacity = `${1 - regionRelativePos}`;
                     if (index !== 4) {
-                        background.style.opacity = `${1 - regionRelativePos}`;
+                        backgrounds[index].style.opacity = `${1 - regionRelativePos}`;
                     }
                 } else {
-                    background.style.opacity = '1';
+                    backgrounds[index].style.opacity = '1';
                     elem.style.opacity = '1';
                 }
             };
 
             if (vhScrollPos >= 0 && vhScrollPos < 1) {
-                background.style.opacity = '0';
+                backgrounds[0].style.opacity = '0';
             } else if (vhScrollPos >= 1 && vhScrollPos < 2) {
                 handleCard(0, 1, 2);
             } else if (vhScrollPos >= 2 && vhScrollPos < 3) {
@@ -74,8 +74,8 @@ export default class Programming extends Scrollable {
             } else if (vhScrollPos >= 5 && vhScrollPos < 6) {
                 handleCard(4, 5, 6);
             } else {
-                background.style.background = `${backgrounds[4]}`;
-                background.style.opacity = '1';
+                backgrounds[4].style.visibility = 'visible';
+                backgrounds[4].style.opacity = '1';
             }
         };
 
