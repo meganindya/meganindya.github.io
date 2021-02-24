@@ -60,7 +60,47 @@
           position: absolute;
           width: 100%;
           height: 60vh;
-          background: blue;
+          background-size: auto 100%;
+        }
+
+        &:nth-of-type(1) {
+          .ambition-card-img {
+            background: url(../assets/images/hci.png) no-repeat;
+            background-size: contain;
+            background-position: 0 0;
+          }
+        }
+
+        &:nth-of-type(2) {
+          .ambition-card-img {
+            background: url(../assets/images/imd.jpg) no-repeat;
+            background-size: contain;
+            background-position: 100% 0;
+          }
+        }
+
+        &:nth-of-type(3) {
+          .ambition-card-img {
+            background: url(../assets/images/vpl.png) no-repeat;
+            background-size: contain;
+            background-position: 0 0;
+          }
+        }
+
+        &:nth-of-type(4) {
+          .ambition-card-img {
+            background: url(../assets/images/phy.png) no-repeat;
+            background-size: contain;
+            background-position: 100% 0;
+          }
+        }
+
+        &:nth-of-type(5) {
+          .ambition-card-img {
+            background: url(../assets/images/ptl.jpg) no-repeat;
+            background-size: contain;
+            background-position: 0 0;
+          }
         }
 
         &:nth-of-type(odd) {
