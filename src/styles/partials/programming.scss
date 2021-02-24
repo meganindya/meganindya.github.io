@@ -4,49 +4,111 @@
   top: 1400vh;
   height: 800vh;
 
-  #programming-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-
-  #programming-container {
+  #programming-body {
     position: sticky;
     top: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
     height: 100vh;
 
-    #programming-header {
+    #programming-backgrounds {
       position: absolute;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      width: 50%;
+      top: 0;
+      width: inherit;
       height: inherit;
 
-      h1 {
-        color: $light;
+      .programming-background {
+        position: absolute;
+        z-index: 325;
+        top: 0;
+        width: inherit;
+        height: inherit;
+
+        .acrylic {
+          position: absolute;
+          z-index: 350;
+          top: 0;
+          width: inherit;
+          height: inherit;
+          background: rgba(0, 0, 0, 0.25);
+        }
+
+        &:nth-of-type(1) {
+          background-image: url(../assets/images/programming/vb.png);
+          background-size: cover;
+          background-position: 0 0;
+        }
+
+        &:nth-of-type(2) {
+          background-image: url(../assets/images/programming/bluej.png);
+          background-size: cover;
+          background-position: 0 0;
+
+          .acrylic {
+            background: rgba(0, 0, 0, 0.75);
+          }
+        }
+
+        &:nth-of-type(3) {
+          background-image: url(../assets/images/programming/dsa.jpg);
+          background-size: cover;
+          background-position: 0 0;
+        }
+
+        &:nth-of-type(4) {
+          background-image: url(../assets/images/programming/terminal.jpg);
+          background-size: cover;
+          background-position: 0 0;
+        }
+
+        &:nth-of-type(5) {
+          background-image: url(../assets/images/programming/programming.jpg);
+          background-size: cover;
+          background-position: 0 0;
+        }
       }
     }
 
-    #programming-cards {
+    .container {
       position: absolute;
-      left: 50%;
-      width: 50%;
+      z-index: 375;
+      top: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
       height: inherit;
 
-      .programming-card {
-        position: absolute;
-        top: 65%;
-        transform: translateY(-50%);
+      #programming-header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 50%;
+        height: inherit;
 
-        .programming-card-text {
-          p {
-            margin: 0;
-            font-size: 1.25rem;
-            line-height: 1.5;
-            color: $light;
+        h1 {
+          color: $light;
+        }
+      }
+
+      #programming-cards {
+        position: relative;
+        width: 50%;
+        height: inherit;
+
+        .programming-card {
+          position: absolute;
+          top: 65%;
+          transform: translateY(-50%);
+
+          .programming-card-text {
+            p {
+              margin: 0;
+              font-size: 1.25rem;
+              line-height: 1.5;
+              color: $light;
+            }
           }
         }
       }
@@ -63,6 +125,7 @@
     justify-content: center;
     width: 100%;
     height: 100vh;
+    background: rgba(127, 127, 127, 0.675);
 
     .container {
       display: flex;
@@ -74,6 +137,7 @@
       h1 {
         font-size: 2rem;
         text-align: center;
+        color: $light;
       }
 
       #programming-tools-list {
@@ -87,12 +151,130 @@
 
         .programming-tool {
           float: left;
+          display: grid;
+          align-items: center;
+          justify-content: center;
           width: 4.5rem;
           height: 4.5rem;
           margin: 0.5rem;
           -webkit-clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
           clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
-          background: #686de0a0;
+          background: $light;
+
+          div {
+            width: 3rem;
+            height: 3rem;
+
+            &.js {
+              background-image: url(../assets/images/programming/logos/js.svg);
+              background-size: cover;
+            }
+
+            &.ts {
+              background-image: url(../assets/images/programming/logos/ts.svg);
+              background-size: cover;
+            }
+
+            &.java {
+              background-image: url(../assets/images/programming/logos/java.svg);
+              background-size: cover;
+            }
+
+            &.c {
+              background-image: url(../assets/images/programming/logos/c.svg);
+              background-size: cover;
+            }
+
+            &.js {
+              background-image: url(../assets/images/programming/logos/js.svg);
+              background-size: cover;
+            }
+
+            &.cpp {
+              background-image: url(../assets/images/programming/logos/cpp.svg);
+              background-size: cover;
+            }
+
+            &.python {
+              background-image: url(../assets/images/programming/logos/python.svg);
+              background-size: cover;
+            }
+
+            &.php {
+              background-image: url(../assets/images/programming/logos/php.svg);
+              background-size: cover;
+            }
+
+            &.html {
+              background-image: url(../assets/images/programming/logos/html.svg);
+              background-size: cover;
+            }
+
+            &.css {
+              background-image: url(../assets/images/programming/logos/css.svg);
+              background-size: cover;
+            }
+
+            &.react {
+              background-image: url(../assets/images/programming/logos/react.svg);
+              background-size: cover;
+            }
+
+            &.angular {
+              background-image: url(../assets/images/programming/logos/angular.svg);
+              background-size: cover;
+            }
+
+            &.jquery {
+              background-image: url(../assets/images/programming/logos/jquery.png);
+              background-size: cover;
+            }
+
+            &.bootstrap {
+              background-image: url(../assets/images/programming/logos/bootstrap.png);
+              background-size: cover;
+            }
+
+            &.ejs {
+              background-image: url(../assets/images/programming/logos/ejs.svg);
+              background-size: cover;
+            }
+
+            &.scss {
+              background-image: url(../assets/images/programming/logos/scss.svg);
+              background-size: cover;
+            }
+
+            &.webpack {
+              background-image: url(../assets/images/programming/logos/webpack.svg);
+              background-size: cover;
+            }
+
+            &.gulp {
+              background-image: url(../assets/images/programming/logos/gulp.svg);
+              background-size: cover;
+            }
+
+            &.graphql {
+              background-image: url(../assets/images/programming/logos/graphql.svg);
+              background-size: cover;
+            }
+
+            &.jest {
+              background-image: url(../assets/images/programming/logos/jest.svg);
+              background-size: cover;
+            }
+
+            &.mocha {
+              background-image: url(../assets/images/programming/logos/mocha.svg);
+              background-size: cover;
+            }
+
+            &.pwa {
+              background-image: url(../assets/images/programming/logos/pwa.png);
+              background-size: cover;
+            }
+          }
         }
       }
     }

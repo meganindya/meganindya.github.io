@@ -50,7 +50,54 @@
       left: 50%;
       width: 50%;
       height: 100%;
-      background: green;
+    }
+
+    &:nth-of-type(2) {
+      .exploration-card-img {
+        background: url(../assets/images/exploration/mb.png) no-repeat;
+        background-size: cover;
+        background-position: 0 0;
+      }
+    }
+
+    &:nth-of-type(3) {
+      .exploration-card-img {
+        background: url(../assets/images/exploration/mb-2.png) no-repeat;
+        background-size: cover;
+        background-position: 0 0;
+      }
+    }
+
+    &:nth-of-type(4) {
+      .exploration-card-img {
+        background: url(../assets/images/exploration/fractal.png) no-repeat;
+        background-size: cover;
+        background-position: 0 0;
+      }
+    }
+
+    &:nth-of-type(5) {
+      .exploration-card-img {
+        background: url(../assets/images/exploration/toothpick.png) no-repeat;
+        background-size: cover;
+        background-position: 0 0;
+      }
+    }
+
+    &:nth-of-type(6) {
+      .exploration-card-img {
+        background: url(../assets/images/exploration/desmos.png) no-repeat;
+        background-size: cover;
+        background-position: 0 0;
+      }
+    }
+
+    &:nth-of-type(7) {
+      .exploration-card-img {
+        background: url(../assets/images/exploration/radar.png) no-repeat;
+        background-size: cover;
+        background-position: 0 0;
+      }
     }
   }
 }
