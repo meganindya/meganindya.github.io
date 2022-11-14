@@ -1,8 +1,6 @@
 <!-- == SCRIPT ============================================================= -->
 
 <script setup lang="ts">
-import 'github-markdown-css';
-
 import { onMounted, ref } from 'vue';
 
 import { getProfileHTML } from '@/utils';

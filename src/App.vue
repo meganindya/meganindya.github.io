@@ -1,7 +1,10 @@
 <!-- == SCRIPT ============================================================= -->
 
 <script setup lang="ts">
+import 'github-markdown-css';
+
 import ProfileReadme from '@/components/ProfileReadme.vue';
+import ProjectList from '@/components/ProjectList.vue';
 </script>
 
 <!-- == TEMPLATE =========================================================== -->
@@ -9,6 +12,10 @@ import ProfileReadme from '@/components/ProfileReadme.vue';
 <template>
   <section id="profile">
     <ProfileReadme />
+  </section>
+
+  <section id="projects">
+    <ProjectList />
   </section>
 </template>
 
@@ -53,7 +60,17 @@ body {
     }
 
     > section {
+      position: relative;
+      margin-top: 6rem;
       padding: 2rem 0;
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      &::before {
+        position: absolute;
+      }
     }
 
     @media only screen and (max-width: 891px) {

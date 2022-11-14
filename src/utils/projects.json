@@ -1,0 +1,11 @@
+[
+  {
+    "title": "Image Splicing Detection and Localization using Digital Forensics",
+    "desc": "Implementation of some Secret Sharing schemes in <b>MATLAB</b>.",
+    "images": [
+      "https://cdn.jsdelivr.net/gh/meganindya/secret-sharing@master/li-bai/demo.png",
+      "https://cdn.jsdelivr.net/gh/meganindya/secret-sharing@master/thien-lin/demo.png",
+      "https://cdn.jsdelivr.net/gh/meganindya/secret-sharing@master/visual-cryptography/demo.png"
+    ]
+  }
+]
