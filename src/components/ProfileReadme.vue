@@ -5,7 +5,7 @@ import 'github-markdown-css';
 
 import { onMounted, ref } from 'vue';
 
-import { getProfileHTML } from '@/utils/profile';
+import { getProfileHTML } from '@/utils';
 
 const profileHTML = ref<string | undefined>(undefined);
 
