@@ -67,13 +67,5 @@ module.exports = {
         ]
     },
 
-    overrides: [
-        {
-            files: [
-                'cypress/integration/**.spec.{js,ts,jsx,tsx}',
-                'cypress/plugins/**.{js,ts,jsx,tsx}'
-            ],
-            extends: ['plugin:cypress/recommended']
-        }
-    ]
+    overrides: []
 };
