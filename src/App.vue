@@ -42,7 +42,8 @@ body {
   //   transition: color 0.5s, background-color 0.5s;
 
   #app {
-    max-width: 1280px;
+    width: 100%;
+    max-width: 892px;
     margin: 0 auto;
     padding: 0 2rem;
     font-weight: normal;
@@ -53,6 +54,12 @@ body {
 
     > section {
       padding: 2rem 0;
+    }
+
+    @media only screen and (max-width: 891px) {
+      > section {
+        padding: 1.5rem 0;
+      }
     }
   }
 }
