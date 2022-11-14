@@ -1,53 +1,37 @@
 {
   "name": "meganindya.github.io",
-  "version": "0.1.0",
-  "description": "My portfolio website",
-  "private": true,
-  "keywords": [
-    "portfolio"
-  ],
-  "author": {
-    "name": "Anindya Kundu",
-    "email": "anindya.k22@outlook.com",
-    "url": "https://meganindya.github.io"
-  },
-  "license": "Apache 2.0",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/meganindya/meganindya.github.io.git"
-  },
-  "homepage": "https://meganindya.github.io",
-  "devDependencies": {
-    "@babel/core": "^7.12.16",
-    "@babel/preset-env": "^7.12.16",
-    "@types/mini-css-extract-plugin": "^1.2.2",
-    "@typescript-eslint/eslint-plugin": "^4.15.1",
-    "@typescript-eslint/parser": "^4.15.1",
-    "babel-loader": "^8.2.2",
-    "clean-webpack-plugin": "^3.0.0",
-    "copy-webpack-plugin": "^7.0.0",
-    "css-loader": "^5.0.2",
-    "ejs": "^3.1.7",
-    "ejs-html-loader": "^4.0.1",
-    "eslint": "^7.20.0",
-    "eslint-config-prettier": "^7.2.0",
-    "gh-pages": "^3.1.0",
-    "html-loader": "^1.3.2",
-    "html-webpack-plugin": "^5.1.0",
-    "mini-css-extract-plugin": "^1.3.7",
-    "node-sass": "^7.0.0",
-    "sass-loader": "^11.0.1",
-    "ts-loader": "^8.0.17",
-    "typescript": "^4.1.5",
-    "webpack": "^5.22.0",
-    "webpack-cli": "^4.5.0",
-    "webpack-dev-server": "^3.11.2"
-  },
+  "version": "0.0.0",
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
-    "build": "webpack",
-    "start": "webpack serve --env development",
-    "eslint": "eslint src/**/*.ts"
+    "dev": "vite",
+    "build": "run-p type-check build-only",
+    "preview": "vite preview",
+    "build-only": "vite build",
+    "type-check": "vue-tsc --noEmit",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+    "predeploy": "npm run build-only",
+    "deploy": "gh-pages -d dist"
+  },
+  "dependencies": {
+    "@wcj/markdown-to-html": "^2.1.2",
+    "github-markdown-css": "^5.1.0",
+    "vue": "^3.2.41"
+  },
+  "devDependencies": {
+    "@nabla/vite-plugin-eslint": "^1.4.1",
+    "@rushstack/eslint-patch": "^1.1.4",
+    "@types/node": "^16.11.68",
+    "@vitejs/plugin-vue": "^3.1.2",
+    "@vue/eslint-config-prettier": "^7.0.0",
+    "@vue/eslint-config-typescript": "^11.0.0",
+    "@vue/tsconfig": "^0.1.3",
+    "eslint": "^8.22.0",
+    "eslint-plugin-vue": "^9.3.0",
+    "gh-pages": "^4.0.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.7.1",
+    "sass": "^1.56.1",
+    "typescript": "~4.7.4",
+    "vite": "^3.1.8",
+    "vue-tsc": "^1.0.8"
   }
 }

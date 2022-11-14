@@ -1,24 +1,40 @@
-# dependencies
-/node_modules
-
-# testing
-/coverage
-
-# production
-/build
-/dist
-
-# local resources
-/res
-
-# linter
+node_modules
+coverage
 .eslintcache
 
-# misc
-.DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+dist
+dist-ssr
+build
 
+# lock files
+package-lock.json
+yarn.lock
+
+# container data volumes
+volumes
+
+# local env files
+.env.local
+.env.*.local
+
+# log files
+logs
+*.log
 npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# editor directories and files
+!.vscode/settings.json
+!.vscode/extensions.json
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# miscellaneous
+.DS_Store
