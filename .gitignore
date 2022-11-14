@@ -1,0 +1,40 @@
+node_modules
+coverage
+.eslintcache
+
+dist
+dist-ssr
+build
+
+# lock files
+package-lock.json
+yarn.lock
+
+# container data volumes
+volumes
+
+# local env files
+.env.local
+.env.*.local
+
+# log files
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# editor directories and files
+!.vscode/settings.json
+!.vscode/extensions.json
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# miscellaneous
+.DS_Store
