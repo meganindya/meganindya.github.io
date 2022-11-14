@@ -1,10 +1,16 @@
 <!-- == SCRIPT ============================================================= -->
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import ProfileReadme from '@/components/ProfileReadme.vue';
+</script>
 
 <!-- == TEMPLATE =========================================================== -->
 
-<template>Portfolio</template>
+<template>
+  <section id="profile">
+    <ProfileReadme />
+  </section>
+</template>
 
 <!-- == STYLE ============================================================== -->
 
@@ -43,6 +49,10 @@ body {
 
     a {
       text-decoration: none;
+    }
+
+    > section {
+      padding: 2rem 0;
     }
   }
 }

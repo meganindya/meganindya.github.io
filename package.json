@@ -10,6 +10,8 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "@wcj/markdown-to-html": "^2.1.2",
+    "github-markdown-css": "^5.1.0",
     "vue": "^3.2.41"
   },
   "devDependencies": {
