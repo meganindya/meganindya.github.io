@@ -37,8 +37,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  color: var(--color-text);
-  background-color: var(--color-background);
+  color: var(--c-fg-default);
+  background-color: var(--c-bg-default);
   //   transition: color 0.5s, background-color 0.5s;
 
   #app {
