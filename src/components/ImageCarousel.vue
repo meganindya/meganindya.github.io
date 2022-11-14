@@ -7,6 +7,8 @@ const props = defineProps({
   images: Array<string>
 });
 
+const emit = defineEmits(['ready']);
+
 const { images } = toRefs(props);
 
 const imageItems = ref<Record<string, string>>({});
@@ -29,6 +31,7 @@ const imagePromises: Promise<void>[] = [];
 
 (async () => {
   await Promise.all(imagePromises);
+  emit('ready');
 })();
 </script>
 

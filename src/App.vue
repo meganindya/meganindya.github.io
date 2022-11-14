@@ -3,20 +3,38 @@
 <script setup lang="ts">
 import 'github-markdown-css';
 
+import { ref, watch } from 'vue';
+
+import Throbber from '@/components/ThrobberItem.vue';
 import ProfileReadme from '@/components/ProfileReadme.vue';
 import ProjectList from '@/components/ProjectList.vue';
+
+const ready = ref(false);
+const readyCount = ref(0);
+
+watch(readyCount, (value) => {
+  if (value === 2) setTimeout(() => (ready.value = true), 0);
+});
 </script>
 
 <!-- == TEMPLATE =========================================================== -->
 
 <template>
-  <section id="profile">
-    <ProfileReadme />
-  </section>
+  <template v-if="!ready">
+    <div id="throbber-wrapper">
+      <Throbber />
+    </div>
+  </template>
 
-  <section id="projects">
-    <ProjectList />
-  </section>
+  <main v-show="ready">
+    <section id="profile">
+      <ProfileReadme @ready="readyCount++" />
+    </section>
+
+    <section id="projects">
+      <ProjectList @ready="readyCount++" />
+    </section>
+  </main>
 </template>
 
 <!-- == STYLE ============================================================== -->
@@ -52,30 +70,37 @@ body {
     width: 100%;
     max-width: 892px;
     margin: 0 auto;
-    padding: 0 2rem;
     font-weight: normal;
+
+    #throbber-wrapper {
+      display: grid;
+      place-items: center;
+      height: 100vh;
+    }
 
     a {
       text-decoration: none;
     }
 
-    > section {
-      position: relative;
-      margin-top: 6rem;
-      padding: 2rem 0;
+    main {
+      padding: 0 2rem;
 
-      &:first-child {
-        margin-top: 0;
-      }
-
-      &::before {
-        position: absolute;
-      }
-    }
-
-    @media only screen and (max-width: 891px) {
       > section {
-        padding: 1.5rem 0;
+        position: relative;
+        margin-top: 6rem;
+        padding: 2rem 0;
+
+        &:first-child {
+          margin-top: 0;
+        }
+
+        &::before {
+          position: absolute;
+        }
+
+        @media only screen and (max-width: 891px) {
+          padding: 1.5rem 0;
+        }
       }
     }
   }

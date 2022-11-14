@@ -11,6 +11,8 @@ const props = defineProps({
   images: Array<string>
 });
 
+const emit = defineEmits(['ready']);
+
 const { title, desc, images } = toRefs(props);
 </script>
 
@@ -20,7 +22,7 @@ const { title, desc, images } = toRefs(props);
   <div class="project-item markdown-body">
     <h2 v-html="title"></h2>
     <p v-html="desc"></p>
-    <ImageCarousel :images="images" />
+    <ImageCarousel :images="images" @ready="emit('ready')" />
   </div>
 </template>
 
