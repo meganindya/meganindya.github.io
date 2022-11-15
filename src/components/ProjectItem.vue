@@ -70,6 +70,7 @@ function getBadgeURL(name: string) {
   .project-item-badge-list {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     gap: 0.5rem;
 
     margin-bottom: 0.5rem;
