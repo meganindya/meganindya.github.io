@@ -53,6 +53,19 @@ const colorMode = ref<0 | 1>(0);
     });
   });
 }
+
+const scrollPos = ref(0);
+window.addEventListener('scroll', () => {
+  requestAnimationFrame(() => {
+    const element = document.getElementById('app')!;
+
+    const { top, height } = element.getBoundingClientRect();
+
+    const heightApp = height;
+    const heightView = window.innerHeight;
+    scrollPos.value = Math.min(Math.max(((0 - top) / (heightApp - heightView)) * 100, 0), 100);
+  });
+});
 </script>
 
 <!-- == TEMPLATE =========================================================== -->
@@ -66,6 +79,10 @@ const colorMode = ref<0 | 1>(0);
 
   <template v-else>
     <nav>
+      <div id="scroll-pos">
+        <div id="scroll-pos-indicator" :style="`width: ${scrollPos}%`"></div>
+      </div>
+
       <div id="nav-main" class="container">
         <div id="nav-left">
           <ul id="nav-links">
@@ -183,6 +200,17 @@ body {
 
     > * {
       width: 100%;
+    }
+
+    #scroll-pos {
+      position: absolute;
+      top: 0;
+      width: 100%;
+
+      #scroll-pos-indicator {
+        height: 2px;
+        background-color: var(--c-accent-emphasis);
+      }
     }
 
     nav {
