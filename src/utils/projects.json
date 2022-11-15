@@ -1,8 +1,11 @@
 [
   {
     "title": "Secret Sharing",
+    "tech": [
+      "MATLAB"
+    ],
     "desc": "Implementation of some Secret Sharing schemes in <b>MATLAB</b>.",
-    "images": [
+    "links": [
       "https://cdn.jsdelivr.net/gh/meganindya/secret-sharing@master/li-bai/demo.png",
       "https://cdn.jsdelivr.net/gh/meganindya/secret-sharing@master/thien-lin/demo.png",
       "https://cdn.jsdelivr.net/gh/meganindya/secret-sharing@master/visual-cryptography/demo.png"
@@ -10,8 +13,13 @@
   },
   {
     "title": "Image Splicing Detection and Localization using Digital Forensics",
+    "tech": [
+      "Python",
+      "Jupyter",
+      "scikit-learn"
+    ],
     "desc": "BTech final year project.",
-    "images": [
+    "links": [
       "https://cdn.jsdelivr.net/gh/meganindya/Image-Splicing-Localisation@main/reports/images/Image%20Splicing%20Localisation%20-%20Presentation-17.png",
       "https://cdn.jsdelivr.net/gh/meganindya/Image-Splicing-Localisation@main/reports/images/Image%20Splicing%20Localisation%20-%20Presentation-18.png",
       "https://cdn.jsdelivr.net/gh/meganindya/Image-Splicing-Localisation@main/reports/images/Image%20Splicing%20Localisation%20-%20Presentation-23.png",
@@ -22,11 +30,148 @@
   },
   {
     "title": "Toddle",
+    "tech": [
+      "Android"
+    ],
     "desc": "Android app.",
-    "images": [
+    "links": [
       "/assets/toddle/toddle-1.jpg",
       "/assets/toddle/toddle-2.jpg",
       "/assets/toddle/toddle-3.jpg"
+    ]
+  },
+  {
+    "title": "Toy Neural Network",
+    "tech": [
+      "Processing",
+      "Java"
+    ],
+    "desc": "Toy Neural Network",
+    "links": [
+      "https://cdn.jsdelivr.net/gh/meganindya/toy-neural-network/toy-neural-network.gif"
+    ]
+  },
+  {
+    "title": "Route Plotter",
+    "tech": [
+      "OpenCV",
+      "Python"
+    ],
+    "desc": "",
+    "links": [
+      "https://cdn.jsdelivr.net/gh/meganindya/route-plotter/sample/input.jpg",
+      "https://cdn.jsdelivr.net/gh/meganindya/route-plotter/sample/output.jpg"
+    ]
+  },
+  {
+    "title": "Library Management System",
+    "tech": [
+      "React",
+      "SCSS",
+      "Express",
+      "GraphQL",
+      "MongoDB",
+      "PostgreSQL",
+      "RabbitMQ"
+    ],
+    "desc": "<video src=\"/assets/lms/part-1.mp4\" controls=\"true\" style=\"width: 100%\"></video>\n<video src=\"/assets/lms/part-2.mp4\" controls=\"true\" style=\"width: 100%\"></video>",
+    "links": []
+  },
+  {
+    "title": "Fingerprint-based Voting Machine",
+    "tech": [
+      "Arduino",
+      "C++"
+    ],
+    "desc": "",
+    "links": [
+      "https://cdn.jsdelivr.net/gh/meganindya/fingerprint-voting-machine/images/circuit-diagram.png",
+      "https://cdn.jsdelivr.net/gh/meganindya/fingerprint-voting-machine/images/circuit-build.jpg",
+      "https://cdn.jsdelivr.net/gh/meganindya/fingerprint-voting-machine/images/circuit-build-covered.jpg"
+    ]
+  },
+  {
+    "title": "Sudoku",
+    "tech": [
+      "JavaScript",
+      "HTML",
+      "CSS"
+    ],
+    "desc": "",
+    "links": [
+      "https://cdn.jsdelivr.net/gh/meganindya/board-games/sudoku/demo/game-1.png",
+      "https://cdn.jsdelivr.net/gh/meganindya/board-games/sudoku/demo/game-2.png",
+      "https://cdn.jsdelivr.net/gh/meganindya/board-games/sudoku/demo/game-3.png",
+      "https://cdn.jsdelivr.net/gh/meganindya/board-games/sudoku/demo/game-4.png"
+    ]
+  },
+  {
+    "title": "Minesweeper",
+    "tech": [
+      "JavaScript",
+      "HTML",
+      "CSS"
+    ],
+    "desc": "",
+    "links": [
+      "https://cdn.jsdelivr.net/gh/meganindya/board-games/minesweeper/images/game-1.png",
+      "https://cdn.jsdelivr.net/gh/meganindya/board-games/minesweeper/images/game-2.png",
+      "https://cdn.jsdelivr.net/gh/meganindya/board-games/minesweeper/images/game-3.png",
+      "https://cdn.jsdelivr.net/gh/meganindya/board-games/minesweeper/images/game-4.png"
+    ]
+  },
+  {
+    "title": "Snakes & Ladders",
+    "tech": [
+      "JavaScript",
+      "HTML",
+      "CSS"
+    ],
+    "desc": "",
+    "links": [
+      "https://cdn.jsdelivr.net/gh/meganindya/board-games/snake-ladder/images/game-1.png",
+      "https://cdn.jsdelivr.net/gh/meganindya/board-games/snake-ladder/images/game-2.png",
+      "https://cdn.jsdelivr.net/gh/meganindya/board-games/snake-ladder/images/game-3.png"
+    ]
+  },
+  {
+    "title": "Dinosaur Game",
+    "tech": [
+      "OpenGL",
+      "C"
+    ],
+    "desc": "Dinosaur Game",
+    "links": [
+      "https://cdn.jsdelivr.net/gh/meganindya/dinosaur-game/screenshots/screenshot-1.png",
+      "https://cdn.jsdelivr.net/gh/meganindya/dinosaur-game/screenshots/screenshot-2.png"
+    ]
+  },
+  {
+    "title": "Radar Game",
+    "tech": [
+      "Processing",
+      "Java"
+    ],
+    "desc": "Radar Game",
+    "links": [
+      "https://cdn.jsdelivr.net/gh/meganindya/radar-game/screenshots/sc-1.png",
+      "https://cdn.jsdelivr.net/gh/meganindya/radar-game/screenshots/sc-2.png",
+      "https://cdn.jsdelivr.net/gh/meganindya/radar-game/screenshots/sc-3.png",
+      "https://cdn.jsdelivr.net/gh/meganindya/radar-game/screenshots/sc-4.png"
+    ]
+  },
+  {
+    "title": "Moviepedia",
+    "tech": [
+      "Angular",
+      "TypeScript"
+    ],
+    "desc": "Movie Explorer",
+    "links": [
+      "https://cdn.jsdelivr.net/gh/meganindya/moviepedia/assets/1-movie-list.png",
+      "https://cdn.jsdelivr.net/gh/meganindya/moviepedia/assets/2-movie-details.png",
+      "https://cdn.jsdelivr.net/gh/meganindya/moviepedia/assets/3-actor-list.png",
+      "https://cdn.jsdelivr.net/gh/meganindya/moviepedia/assets/4-actor-details.png"
     ]
   }
 ]
