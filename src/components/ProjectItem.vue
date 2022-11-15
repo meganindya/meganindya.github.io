@@ -14,6 +14,8 @@ const props = defineProps({
 const emit = defineEmits(['ready']);
 
 const { title, desc, images } = toRefs(props);
+
+if (images!.value!.length === 0) emit('ready');
 </script>
 
 <!-- == TEMPLATE =========================================================== -->
@@ -22,7 +24,10 @@ const { title, desc, images } = toRefs(props);
   <div class="project-item markdown-body">
     <h2 v-html="title"></h2>
     <p v-html="desc"></p>
-    <ImageCarousel :images="images" @ready="emit('ready')" />
+
+    <template v-if="images!.length > 0">
+      <ImageCarousel :images="images" @ready="emit('ready')" />
+    </template>
   </div>
 </template>
 
