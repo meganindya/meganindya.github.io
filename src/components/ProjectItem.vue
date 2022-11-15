@@ -11,11 +11,7 @@ const props = defineProps({
   images: Array<string>
 });
 
-const emit = defineEmits(['ready']);
-
 const { title, desc, images } = toRefs(props);
-
-if (images!.value!.length === 0) emit('ready');
 </script>
 
 <!-- == TEMPLATE =========================================================== -->
@@ -26,7 +22,7 @@ if (images!.value!.length === 0) emit('ready');
     <p v-html="desc"></p>
 
     <template v-if="images!.length > 0">
-      <ImageCarousel :images="images" @ready="emit('ready')" />
+      <ImageCarousel :images="images" />
     </template>
   </div>
 </template>
