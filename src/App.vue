@@ -193,6 +193,10 @@ body {
             flex-direction: row;
             gap: 1.5rem;
 
+            @media only screen and (max-width: 891px) {
+              gap: 1rem;
+            }
+
             margin: 0;
             padding: 0;
             list-style: none;
