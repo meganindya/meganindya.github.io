@@ -11,9 +11,20 @@ const highlightHTML = ref(getHighlightHTML());
 <!-- == TEMPLATE =========================================================== -->
 
 <template>
-  <article id="profile" class="markdown-body" v-html="highlightHTML"></article>
+  <article id="highlight" class="markdown-body" v-html="highlightHTML"></article>
 </template>
 
 <!-- == STYLE ============================================================== -->
 
-<style lang="scss"></style>
+<style lang="scss">
+#highlight {
+  p {
+    text-align: justify;
+
+    img {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+}
+</style>
