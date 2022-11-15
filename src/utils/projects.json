@@ -1,11 +1,32 @@
 [
   {
-    "title": "Image Splicing Detection and Localization using Digital Forensics",
+    "title": "Secret Sharing",
     "desc": "Implementation of some Secret Sharing schemes in <b>MATLAB</b>.",
     "images": [
       "https://cdn.jsdelivr.net/gh/meganindya/secret-sharing@master/li-bai/demo.png",
       "https://cdn.jsdelivr.net/gh/meganindya/secret-sharing@master/thien-lin/demo.png",
       "https://cdn.jsdelivr.net/gh/meganindya/secret-sharing@master/visual-cryptography/demo.png"
+    ]
+  },
+  {
+    "title": "Image Splicing Detection and Localization using Digital Forensics",
+    "desc": "BTech final year project.",
+    "images": [
+      "https://cdn.jsdelivr.net/gh/meganindya/Image-Splicing-Localisation@main/reports/images/Image%20Splicing%20Localisation%20-%20Presentation-17.png",
+      "https://cdn.jsdelivr.net/gh/meganindya/Image-Splicing-Localisation@main/reports/images/Image%20Splicing%20Localisation%20-%20Presentation-18.png",
+      "https://cdn.jsdelivr.net/gh/meganindya/Image-Splicing-Localisation@main/reports/images/Image%20Splicing%20Localisation%20-%20Presentation-23.png",
+      "https://cdn.jsdelivr.net/gh/meganindya/Image-Splicing-Localisation@main/reports/images/Image%20Splicing%20Localisation%20-%20Presentation-24.png",
+      "https://cdn.jsdelivr.net/gh/meganindya/Image-Splicing-Localisation@main/reports/images/Image%20Splicing%20Localisation%20-%20Presentation-26.png",
+      "https://cdn.jsdelivr.net/gh/meganindya/Image-Splicing-Localisation@main/reports/images/Image%20Splicing%20Localisation%20-%20Presentation-27.png"
+    ]
+  },
+  {
+    "title": "Toddle",
+    "desc": "Android app.",
+    "images": [
+      "/assets/toddle/toddle-1.jpg",
+      "/assets/toddle/toddle-2.jpg",
+      "/assets/toddle/toddle-3.jpg"
     ]
   }
 ]
