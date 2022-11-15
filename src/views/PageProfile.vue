@@ -11,9 +11,11 @@ const profileHTML = ref(getProfileHTML());
 <!-- == TEMPLATE =========================================================== -->
 
 <template>
-  <template v-if="profileHTML !== undefined">
-    <div class="markdown-body" v-html="profileHTML"></div>
-  </template>
+  <article id="profile">
+    <template v-if="profileHTML !== undefined">
+      <div class="markdown-body" v-html="profileHTML"></div>
+    </template>
+  </article>
 </template>
 
 <!-- == STYLE ============================================================== -->

@@ -5,10 +5,9 @@ import 'github-markdown-css';
 
 import { ref } from 'vue';
 
-import Throbber from '@/components/ThrobberItem.vue';
-import ProfileReadme from '@/components/ProfileReadme.vue';
-import ProjectList from '@/components/ProjectList.vue';
 import { init } from './utils';
+
+import Throbber from '@/components/ThrobberItem.vue';
 
 const ready = ref(false);
 
@@ -28,15 +27,14 @@ const ready = ref(false);
   </template>
 
   <template v-else>
-    <main>
-      <section id="profile">
-        <ProfileReadme />
-      </section>
+    <nav></nav>
 
-      <section id="projects">
-        <ProjectList />
-      </section></main
-  ></template>
+    <main>
+      <RouterView />
+    </main>
+
+    <footer></footer>
+  </template>
 </template>
 
 <!-- == STYLE ============================================================== -->
@@ -85,24 +83,10 @@ body {
     }
 
     main {
-      padding: 0 2rem;
+      padding: 2rem;
 
-      > section {
-        position: relative;
-        margin-top: 6rem;
-        padding: 2rem 0;
-
-        &:first-child {
-          margin-top: 0;
-        }
-
-        &::before {
-          position: absolute;
-        }
-
-        @media only screen and (max-width: 891px) {
-          padding: 1.5rem 0;
-        }
+      @media only screen and (max-width: 891px) {
+        padding: 1.5rem 1rem;
       }
     }
   }

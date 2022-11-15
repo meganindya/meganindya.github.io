@@ -14,7 +14,8 @@
   "dependencies": {
     "@wcj/markdown-to-html": "^2.1.2",
     "github-markdown-css": "^5.1.0",
-    "vue": "^3.2.41"
+    "vue": "^3.2.41",
+    "vue-router": "^4.1.6"
   },
   "devDependencies": {
     "@nabla/vite-plugin-eslint": "^1.4.1",

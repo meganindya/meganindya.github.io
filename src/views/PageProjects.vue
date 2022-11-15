@@ -13,18 +13,20 @@ const projects = ref(getProjects());
 <!-- == TEMPLATE =========================================================== -->
 
 <template>
-  <div class="markdown-body">
-    <h1>Notable Projects</h1>
-    <p></p>
-  </div>
+  <article id="projects">
+    <header class="markdown-body">
+      <h1>Notable Projects</h1>
+      <p></p>
+    </header>
 
-  <ul id="project-list">
-    <template v-for="({ title, desc, images }, i) in projects" :key="`project-${i}`">
-      <li>
-        <ProjectItem :title="title" :desc="desc" :images="images" />
-      </li>
-    </template>
-  </ul>
+    <ul id="project-list">
+      <template v-for="({ title, desc, images }, i) in projects" :key="`project-${i}`">
+        <li>
+          <ProjectItem :title="title" :desc="desc" :images="images" />
+        </li>
+      </template>
+    </ul>
+  </article>
 </template>
 
 <!-- == STYLE ============================================================== -->
