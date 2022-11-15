@@ -27,9 +27,24 @@ const ready = ref(false);
   </template>
 
   <template v-else>
-    <nav></nav>
+    <nav>
+      <div id="nav-main" class="container">
+        <div id="nav-left">
+          <ul id="nav-links">
+            <li class="nav-link">
+              <a href="/" :class="$route.name === 'profile' ? 'active' : ''">Profile</a>
+            </li>
+            <li class="nav-link">
+              <a href="/projects" :class="$route.name === 'projects' ? 'active' : ''">Projects</a>
+            </li>
+          </ul>
+        </div>
 
-    <main>
+        <div id="nav-right"></div>
+      </div>
+    </nav>
+
+    <main class="container">
       <RouterView />
     </main>
 
@@ -67,10 +82,22 @@ body {
   //   transition: color 0.5s, background-color 0.5s;
 
   #app {
+    position: relative;
     width: 100%;
-    max-width: 892px;
-    margin: 0 auto;
     font-weight: normal;
+
+    .container {
+      width: 100%;
+      max-width: 892px;
+      margin: 0 auto;
+      padding-right: 2rem;
+      padding-left: 2rem;
+
+      @media only screen and (max-width: 891px) {
+        padding-right: 1rem;
+        padding-left: 1rem;
+      }
+    }
 
     #throbber-wrapper {
       display: grid;
@@ -82,12 +109,62 @@ body {
       text-decoration: none;
     }
 
-    main {
-      padding: 2rem;
+    > * {
+      width: 100%;
+    }
 
-      @media only screen and (max-width: 891px) {
-        padding: 1.5rem 1rem;
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+
+      border-bottom: 1px solid var(--c-border-muted);
+
+      background-color: rgba(var(--c-bg-default), 0.9);
+      @supports (backdrop-filter: blur(16px)) or (-webkit-backdrop-filter: blur(16px)) {
+        -webkit-backdrop-filter: blur(16px);
+        backdrop-filter: blur(16px);
+        background-color: rgba(var(--c-bg-default), 0.3);
       }
+
+      #nav-main {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        #nav-left {
+          #nav-links {
+            display: flex;
+            flex-direction: row;
+            gap: 1.5rem;
+
+            margin: 0;
+            padding: 0;
+            list-style: none;
+
+            .nav-link {
+              padding: 0.5rem 0;
+
+              a {
+                font-size: 0.75rem;
+                text-transform: uppercase;
+                color: var(--c-fg-muted);
+                cursor: pointer;
+
+                &.active {
+                  color: var(--c-fg-default);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    main {
+      padding-top: 1rem;
+      padding-bottom: 3rem;
     }
   }
 }
