@@ -79,6 +79,11 @@ const colorMode = ref<0 | 1>(0);
                 Projects
               </RouterLink>
             </li>
+            <li class="nav-link">
+              <RouterLink to="/highlight" :class="$route.name === 'highlight' ? 'active' : ''">
+                Highlight
+              </RouterLink>
+            </li>
           </ul>
         </div>
 
