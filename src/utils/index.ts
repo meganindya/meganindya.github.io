@@ -1,5 +1,7 @@
 import markdown from '@wcj/markdown-to-html';
 
+import projects from './projects.json';
+
 export async function getProfileHTML(): Promise<string> {
     const profile = import.meta.env['VITE_PROFILE'] as string;
 
@@ -20,4 +22,8 @@ export async function getProfileHTML(): Promise<string> {
     const html = markdown(md) as string;
 
     return html;
+}
+
+export function getProjects(): { title: string; desc: string; images: string[] }[] {
+    return projects;
 }
