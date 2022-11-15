@@ -1,11 +1,12 @@
 <!-- == SCRIPT ============================================================= -->
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 
 import { init } from './utils';
 
 import Throbber from '@/components/ThrobberItem.vue';
+import ToggleSwitch from '@/components/ToggleSwitch.vue';
 
 const ready = ref(false);
 
@@ -13,6 +14,31 @@ const ready = ref(false);
   await init();
   setTimeout(() => (ready.value = true), 100);
 })();
+
+const colorMode = ref<0 | 1>(0);
+
+const setColorMode = (value: 0 | 1): void => {
+  document.documentElement.setAttribute('color-scheme', value === 0 ? 'dark' : 'light');
+  localStorage.setItem('site-color-scheme', colorMode.value === 0 ? 'dark' : 'light');
+};
+
+const colorScheme = localStorage.getItem('site-color-scheme') as 'dark' | 'light';
+
+colorMode.value = colorScheme
+  ? colorScheme === 'dark'
+    ? 0
+    : 1
+  : window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+  ? 0
+  : 1;
+
+setColorMode(colorMode.value);
+
+watch(colorMode, (value) => setColorMode(value));
+
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
+  colorMode.value = event.matches ? 0 : 1;
+});
 </script>
 
 <!-- == TEMPLATE =========================================================== -->
@@ -30,15 +56,21 @@ const ready = ref(false);
         <div id="nav-left">
           <ul id="nav-links">
             <li class="nav-link">
-              <a href="/" :class="$route.name === 'profile' ? 'active' : ''">Profile</a>
+              <RouterLink to="/" :class="$route.name === 'profile' ? 'active' : ''">
+                Profile
+              </RouterLink>
             </li>
             <li class="nav-link">
-              <a href="/projects" :class="$route.name === 'projects' ? 'active' : ''">Projects</a>
+              <RouterLink to="/projects" :class="$route.name === 'projects' ? 'active' : ''">
+                Projects
+              </RouterLink>
             </li>
           </ul>
         </div>
 
-        <div id="nav-right"></div>
+        <div id="nav-right">
+          <ToggleSwitch labelLeft="🌚" labelRight="🌝" v-model:init="colorMode" />
+        </div>
       </div>
     </nav>
 
@@ -78,7 +110,11 @@ body {
 
   color: var(--c-fg-default);
   background-color: var(--c-bg-default);
-  //   transition: color 0.5s, background-color 0.5s;
+  transition: color 0.25s ease, background-color 0.1s ease;
+
+  .markdown-body {
+    transition: color 0.25s ease, background-color 0.1s ease;
+  }
 
   #app {
     position: relative;
