@@ -1,6 +1,7 @@
 import markdown from '@wcj/markdown-to-html';
 
 import projects from './projects.json';
+import highlight from './highlight.md';
 
 let _profileMD = '';
 let _projects: { title: string; desc: string; images: string[] }[] = [];
@@ -11,6 +12,9 @@ export async function init(): Promise<void> {
             const _profilePromise = fetch(
                 'https://raw.githubusercontent.com/meganindya/meganindya/main/README.md'
             );
+
+            // const _highlightPromise = import(`./${'highlight'}.md`);
+            // _highlightPromise.then((res) => res.text()).then((res) => console.log(res));
 
             const _projectPromises = projects.map(
                 ({ images }) =>
@@ -63,4 +67,8 @@ export function getProfileHTML(): string {
 
 export function getProjects(): { title: string; desc: string; images: string[] }[] {
     return _projects;
+}
+
+export function getHighlightHTML(): string {
+    return markdown(highlight) as string;
 }

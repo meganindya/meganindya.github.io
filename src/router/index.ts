@@ -20,6 +20,13 @@ const router = createRouter({
             name: 'projects',
 
             component: () => import('../views/PageProjects.vue')
+        },
+
+        {
+            path: '/highlight',
+            name: 'highlight',
+
+            component: () => import('../views/PageHighlight.vue')
         }
     ]
 });

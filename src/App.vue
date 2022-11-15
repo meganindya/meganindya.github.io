@@ -2,6 +2,7 @@
 
 <script setup lang="ts">
 import { ref, watch } from 'vue';
+import { useRoute } from 'vue-router';
 
 import { init } from './utils';
 
@@ -18,28 +19,40 @@ const ready = ref(false);
 
 const colorMode = ref<0 | 1>(0);
 
-const setColorMode = (value: 0 | 1): void => {
-  document.documentElement.setAttribute('color-scheme', value === 0 ? 'dark' : 'light');
-  localStorage.setItem('site-color-scheme', colorMode.value === 0 ? 'dark' : 'light');
-};
+{
+  const setColorMode = (value: 0 | 1): void => {
+    document.documentElement.setAttribute('color-scheme', value === 0 ? 'dark' : 'light');
+    localStorage.setItem('site-color-scheme', colorMode.value === 0 ? 'dark' : 'light');
+  };
 
-const colorScheme = localStorage.getItem('site-color-scheme') as 'dark' | 'light';
+  const colorScheme = localStorage.getItem('site-color-scheme') as 'dark' | 'light';
 
-colorMode.value = colorScheme
-  ? colorScheme === 'dark'
+  colorMode.value = colorScheme
+    ? colorScheme === 'dark'
+      ? 0
+      : 1
+    : window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
     ? 0
-    : 1
-  : window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
-  ? 0
-  : 1;
+    : 1;
 
-setColorMode(colorMode.value);
+  setColorMode(colorMode.value);
 
-watch(colorMode, (value) => setColorMode(value));
+  watch(colorMode, (value) => setColorMode(value));
 
-window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
-  colorMode.value = event.matches ? 0 : 1;
-});
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
+    colorMode.value = event.matches ? 0 : 1;
+  });
+}
+
+{
+  const route = useRoute();
+  watch(route, () => {
+    window.scroll({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+}
 </script>
 
 <!-- == TEMPLATE =========================================================== -->
@@ -64,6 +77,11 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (ev
             <li class="nav-link">
               <RouterLink to="/projects" :class="$route.name === 'projects' ? 'active' : ''">
                 Projects
+              </RouterLink>
+            </li>
+            <li class="nav-link">
+              <RouterLink to="/highlight" :class="$route.name === 'highlight' ? 'active' : ''">
+                Highlight
               </RouterLink>
             </li>
           </ul>

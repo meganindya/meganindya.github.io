@@ -10,7 +10,18 @@ export default defineConfig({
         vue(),
         eslintPlugin({
             formatter: 'stylish'
-        })
+        }),
+        {
+            name: 'md-plugin',
+
+            transform(src, id) {
+                if (/\.(md)$/.test(id)) {
+                    return {
+                        code: `const content = \`${src}\`; export default content;`
+                    };
+                }
+            }
+        }
     ],
     resolve: {
         alias: {
