@@ -3,6 +3,8 @@
 <script setup lang="ts">
 import { onMounted, ref, toRefs } from 'vue';
 
+import IconItem from '@/components/IconItem.vue';
+
 const props = defineProps({
   images: Array<string>
 });
@@ -52,7 +54,7 @@ const updateImage = (direction: 'prev' | 'next'): void => {
         } image-carousel-btn-prev`"
         @click="updateImage('prev')"
       >
-        &lt;
+        <IconItem name="arrow-left" />
       </button>
 
       <div class="image-carousel-box" ref="imageBoxRef">
@@ -65,7 +67,7 @@ const updateImage = (direction: 'prev' | 'next'): void => {
         } image-carousel-btn-next`"
         @click="updateImage('next')"
       >
-        &gt;
+        <IconItem name="arrow-right" />
       </button>
     </div>
     <div class="image-carousel-progress" ref="imageCarouselProgress"></div>
@@ -95,15 +97,28 @@ const updateImage = (direction: 'prev' | 'next'): void => {
       place-items: center;
       width: 1.5rem;
       height: 1.5rem;
-      border-radius: 4px;
+      padding: 4px;
 
       background: none;
       border: unset;
-      background-color: var(--c-fg-subtle);
       cursor: pointer;
 
+      .icon {
+        svg {
+          path {
+            fill: var(--c-accent-fg);
+          }
+        }
+      }
+
       &.image-carousel-btn-disabled {
-        opacity: 25%;
+        .icon {
+          svg {
+            path {
+              fill: var(--c-neutral-muted);
+            }
+          }
+        }
       }
     }
 
