@@ -4,7 +4,7 @@ import projects from './projects.json';
 import highlight from './highlight.md';
 
 let _profileMD = '';
-let _projects: { title: string; desc: string; images: string[] }[] = [];
+let _projects: { title: string; tech: string[]; desc: string; links: string[] }[] = [];
 
 export async function init(): Promise<void> {
     return new Promise((resolve) => {
@@ -17,9 +17,9 @@ export async function init(): Promise<void> {
             // _highlightPromise.then((res) => res.text()).then((res) => console.log(res));
 
             const _projectPromises = projects.map(
-                ({ images }) =>
+                ({ links }) =>
                     new Promise<Response[]>((resolve) => {
-                        const imagePromises = images.map((imagePath) => fetch(imagePath));
+                        const imagePromises = links.map((link) => fetch(link));
                         (async () => {
                             resolve(await Promise.all(imagePromises));
                         })();
@@ -38,8 +38,9 @@ export async function init(): Promise<void> {
             responseProjects.forEach((responses, i) => {
                 _projects[i] = {
                     title: projects[i].title,
+                    tech: projects[i].tech,
                     desc: projects[i].desc,
-                    images: []
+                    links: []
                 };
 
                 responses.forEach((response, j) => {
@@ -49,7 +50,7 @@ export async function init(): Promise<void> {
 
                             const reader = new FileReader();
                             reader.onload = (e) =>
-                                (_projects[i].images[j] = e.target!.result as string);
+                                (_projects[i].links[j] = e.target!.result as string);
                             reader.readAsDataURL(blob);
                         })();
                     }
@@ -65,7 +66,12 @@ export function getProfileHTML(): string {
     return markdown(_profileMD) as string;
 }
 
-export function getProjects(): { title: string; desc: string; images: string[] }[] {
+export function getProjects(): {
+    title: string;
+    tech: string[];
+    desc: string;
+    links: string[];
+}[] {
     return _projects;
 }
 
