@@ -47,10 +47,12 @@ const colorMode = ref<0 | 1>(0);
 {
   const route = useRoute();
   watch(route, () => {
-    window.scroll({
-      top: 0,
-      behavior: 'smooth'
-    });
+    setTimeout(() => {
+      window.scroll({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }, 100);
   });
 }
 
