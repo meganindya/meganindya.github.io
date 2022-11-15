@@ -14,11 +14,6 @@ const projects = ref(getProjects());
 
 <template>
   <article id="projects">
-    <header class="markdown-body">
-      <h1>Notable Projects</h1>
-      <p></p>
-    </header>
-
     <ul id="project-list">
       <template v-for="({ title, desc, images }, i) in projects" :key="`project-${i}`">
         <li>
