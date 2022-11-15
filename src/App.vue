@@ -1,8 +1,6 @@
 <!-- == SCRIPT ============================================================= -->
 
 <script setup lang="ts">
-import 'github-markdown-css';
-
 import { ref } from 'vue';
 
 import { init } from './utils';
@@ -56,6 +54,7 @@ const ready = ref(false);
 
 <style lang="scss">
 @import '@/scss/colors.scss';
+@import '@/scss/markdown.scss';
 
 *,
 *::before,
