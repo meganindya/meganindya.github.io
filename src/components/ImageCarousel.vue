@@ -1,55 +1,17 @@
 <!-- == SCRIPT ============================================================= -->
 
 <script setup lang="ts">
-import { ref, toRefs, watch } from 'vue';
+import { onMounted, ref, toRefs } from 'vue';
 
 const props = defineProps({
   images: Array<string>
 });
 
-const emit = defineEmits(['ready']);
-
-const ready = ref(false);
-
 const { images } = toRefs(props);
 
-const imageItems = ref<Record<string, string>>({});
-
-const imagePromises: Promise<void>[] = [];
-(images!.value as string[]).forEach((image) => {
-  imagePromises.push(
-    new Promise<void>((resolve) => {
-      fetch(image)
-        .then((response) => response.blob())
-        .then((blob) => {
-          const reader = new FileReader();
-          reader.onload = (e) => {
-            const img = e.target!.result as string;
-
-            imageItems.value[image] = img;
-
-            const i = new Image();
-            i.onload = () => {
-              resolve();
-            };
-            i.src = img;
-          };
-          reader.readAsDataURL(blob);
-        });
-    })
-  );
-});
-
-(async () => {
-  await Promise.all(imagePromises);
-  ready.value = true;
-  emit('ready');
-})();
-
 const imageCarouselProgress = ref(null);
-watch([ready, imageCarouselProgress], ([ready, element]) => {
-  if (!ready || !element) return;
 
+onMounted(() => {
   images!.value!.forEach((_, i) => {
     const div = document.createElement('div');
     if (i === 0) div.classList.add('active');
@@ -59,11 +21,7 @@ watch([ready, imageCarouselProgress], ([ready, element]) => {
   });
 });
 
-const currentImageIndex = ref(-1);
-
-watch(ready, () => {
-  currentImageIndex.value = 0;
-});
+const currentImageIndex = ref(0);
 
 const updateImage = (direction: 'prev' | 'next'): void => {
   const sign = direction === 'prev' ? -1 : 1;
@@ -86,7 +44,7 @@ const updateImage = (direction: 'prev' | 'next'): void => {
 <!-- == TEMPLATE =========================================================== -->
 
 <template>
-  <div class="image-carousel-wrapper" v-if="ready">
+  <div class="image-carousel-wrapper">
     <div class="image-carousel">
       <button
         :class="`image-carousel-btn ${
@@ -98,7 +56,7 @@ const updateImage = (direction: 'prev' | 'next'): void => {
       </button>
 
       <div class="image-carousel-box" ref="imageBoxRef">
-        <img :src="imageItems[images![currentImageIndex]]" />
+        <img :src="images![currentImageIndex]" />
       </div>
 
       <button

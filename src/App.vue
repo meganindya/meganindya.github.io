@@ -3,18 +3,19 @@
 <script setup lang="ts">
 import 'github-markdown-css';
 
-import { ref, watch } from 'vue';
+import { ref } from 'vue';
 
 import Throbber from '@/components/ThrobberItem.vue';
 import ProfileReadme from '@/components/ProfileReadme.vue';
 import ProjectList from '@/components/ProjectList.vue';
+import { init } from './utils';
 
 const ready = ref(false);
-const readyCount = ref(0);
 
-watch(readyCount, (value) => {
-  if (value === 2) setTimeout(() => (ready.value = true), 0);
-});
+(async () => {
+  await init();
+  setTimeout(() => (ready.value = true), 100);
+})();
 </script>
 
 <!-- == TEMPLATE =========================================================== -->
@@ -26,15 +27,16 @@ watch(readyCount, (value) => {
     </div>
   </template>
 
-  <main v-show="ready">
-    <section id="profile">
-      <ProfileReadme @ready="readyCount++" />
-    </section>
+  <template v-else>
+    <main>
+      <section id="profile">
+        <ProfileReadme />
+      </section>
 
-    <section id="projects">
-      <ProjectList @ready="readyCount++" />
-    </section>
-  </main>
+      <section id="projects">
+        <ProjectList />
+      </section></main
+  ></template>
 </template>
 
 <!-- == STYLE ============================================================== -->

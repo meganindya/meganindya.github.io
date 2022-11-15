@@ -1,20 +1,11 @@
 <!-- == SCRIPT ============================================================= -->
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
+import { ref } from 'vue';
 
 import { getProfileHTML } from '@/utils';
 
-const emit = defineEmits(['ready']);
-
-const profileHTML = ref<string | undefined>(undefined);
-
-onMounted(() => {
-  (async () => {
-    profileHTML.value = await getProfileHTML();
-    emit('ready');
-  })();
-});
+const profileHTML = ref(getProfileHTML());
 </script>
 
 <!-- == TEMPLATE =========================================================== -->
