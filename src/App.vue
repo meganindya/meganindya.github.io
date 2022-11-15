@@ -7,6 +7,7 @@ import { init } from './utils';
 
 import Throbber from '@/components/ThrobberItem.vue';
 import ToggleSwitch from '@/components/ToggleSwitch.vue';
+import IconItem from '@/components/IconItem.vue';
 
 const ready = ref(false);
 
@@ -78,7 +79,25 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (ev
       <RouterView />
     </main>
 
-    <footer></footer>
+    <footer class="container">
+      <ul id="footer-links">
+        <li class="footer-link">
+          <a href="https://linkedin.com/in/meganindya/" target="_blank">
+            <IconItem name="linkedin" />
+          </a>
+        </li>
+        <li class="footer-link">
+          <a href="https://github.com/meganindya" target="_blank">
+            <IconItem name="github" />
+          </a>
+        </li>
+        <li class="footer-link">
+          <a href="mailto:anindyaak007@gmail.com" target="_blank">
+            <IconItem name="gmail" />
+          </a>
+        </li>
+      </ul>
+    </footer>
   </template>
 </template>
 
@@ -200,6 +219,66 @@ body {
     main {
       padding-top: 1rem;
       padding-bottom: 3rem;
+    }
+
+    footer {
+      display: grid;
+      place-items: center;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+      border-top: 1px solid var(--c-border-muted);
+
+      #footer-links {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        place-items: center;
+
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        .footer-link {
+          display: grid;
+          place-items: center;
+          padding: 0.5rem;
+          border-radius: 8px;
+          background-color: var(--c-bg-subtle);
+          cursor: pointer;
+          transition: background-color 0.5s ease;
+
+          a {
+            width: 1.5rem;
+            height: 1.5rem;
+
+            .icon {
+              width: 1.5rem;
+              height: 1.5rem;
+
+              svg {
+                path {
+                  fill: var(--c-fg-muted);
+                  transition: fill 0.5s ease;
+                }
+              }
+            }
+          }
+
+          &:hover {
+            background-color: var(--c-neutral-muted);
+
+            a {
+              .icon {
+                svg {
+                  path {
+                    fill: var(--c-fg-default);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
