@@ -78,3 +78,5 @@ export function getProjects(): {
 export function getHighlightHTML(): string {
     return markdown(highlight) as string;
 }
+
+export { drawContributions } from './contributions';
