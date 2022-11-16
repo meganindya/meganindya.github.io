@@ -5,7 +5,8 @@
       "MATLAB": "matlab"
     },
     "repo": "https://github.com/meganindya/secret-sharing",
-    "desc": "Implementation of some Secret Sharing schemes in <b>MATLAB</b>.",
+    "summary": "Implementation of some _Secret Sharing_ schemes in **MATLAB**.",
+    "desc": "Developed _MATLAB_ programs implementing different encryption/decryption schemes on grayscale images, based on some research papers in **Secret Sharing**.\n\n- Replicated in code, **Adi Shamir’s (r, n) thresholding secret sharing scheme**. This scheme uses _Lagrange’s Interpolation_ and _inverse-modulo_ operations to achieve results.\n- Followed Chih-Ching Thien and Ja-Chen Lin’s approach which is similar to the previous, to develop another (r, n) scheme. Also implemented the improved scheme that eliminates one drawback of \nthe initial method, which is also discussed in their paper.\n- Replicated in code, Li Bai’s matrix-based secret sharing scheme.\n- Replicated in code, George Blakley’s hyperplane based secret sharing scheme.\n- Developed the encryption and adding methods for **(2, n) Visual Cryptographic Scheme** based on _Naor – Shamir constructions_.\n",
     "links": [
       "https://cdn.jsdelivr.net/gh/meganindya/secret-sharing@master/li-bai/demo.png",
       "https://cdn.jsdelivr.net/gh/meganindya/secret-sharing@master/thien-lin/demo.png",
@@ -20,7 +21,7 @@
       "scikit-learn": "scikit-learn"
     },
     "repo": "https://github.com/meganindya/Image-Splicing-Localisation",
-    "desc": "BTech final year project.",
+    "summary": "BTech final year project.",
     "links": [
       "https://cdn.jsdelivr.net/gh/meganindya/Image-Splicing-Localisation@main/reports/images/Image%20Splicing%20Localisation%20-%20Presentation-17.png",
       "https://cdn.jsdelivr.net/gh/meganindya/Image-Splicing-Localisation@main/reports/images/Image%20Splicing%20Localisation%20-%20Presentation-18.png",
@@ -35,7 +36,7 @@
     "tech": {
       "Android": "android"
     },
-    "desc": "Android app.",
+    "summary": "Android app.",
     "links": [
       "/assets/toddle/toddle-1.jpg",
       "/assets/toddle/toddle-2.jpg",
@@ -49,7 +50,7 @@
       "Java": "java"
     },
     "repo": "https://github.com/meganindya/toy-neural-network",
-    "desc": "Toy Neural Network",
+    "summary": "Toy Neural Network",
     "links": [
       "https://cdn.jsdelivr.net/gh/meganindya/toy-neural-network/toy-neural-network.gif"
     ]
@@ -60,7 +61,7 @@
       "OpenCV": "opencv",
       "Python 3": "python"
     },
-    "desc": "",
+    "summary": "",
     "repo": "https://github.com/meganindya/route-plotter",
     "links": [
       "https://cdn.jsdelivr.net/gh/meganindya/route-plotter/sample/input.jpg",
@@ -80,7 +81,7 @@
       "RabbitMQ": "rabbitmq"
     },
     "repo": "https://github.com/meganindya/library-management-system",
-    "desc": "<video src=\"/assets/lms/part-1.mp4\" controls=\"true\" style=\"width: 100%\"></video>\n<video src=\"/assets/lms/part-2.mp4\" controls=\"true\" style=\"width: 100%\"></video>",
+    "summary": "<video src=\"/assets/lms/part-1.mp4\" controls=\"true\" style=\"width: 100%\"></video>\n<video src=\"/assets/lms/part-2.mp4\" controls=\"true\" style=\"width: 100%\"></video>",
     "links": []
   },
   {
@@ -90,7 +91,7 @@
       "C++": "c++"
     },
     "repo": "https://github.com/meganindya/fingerprint-voting-machine",
-    "desc": "",
+    "summary": "",
     "links": [
       "https://cdn.jsdelivr.net/gh/meganindya/fingerprint-voting-machine/images/circuit-diagram.png",
       "https://cdn.jsdelivr.net/gh/meganindya/fingerprint-voting-machine/images/circuit-build.jpg",
@@ -105,7 +106,7 @@
       "CSS 3": "css3"
     },
     "repo": "https://github.com/meganindya/board-games/tree/master/sudoku",
-    "desc": "",
+    "summary": "",
     "links": [
       "https://cdn.jsdelivr.net/gh/meganindya/board-games/sudoku/demo/game-1.png",
       "https://cdn.jsdelivr.net/gh/meganindya/board-games/sudoku/demo/game-2.png",
@@ -121,7 +122,7 @@
       "CSS 3": "css3"
     },
     "repo": "https://github.com/meganindya/board-games/tree/master/minesweeper",
-    "desc": "",
+    "summary": "",
     "links": [
       "https://cdn.jsdelivr.net/gh/meganindya/board-games/minesweeper/images/game-1.png",
       "https://cdn.jsdelivr.net/gh/meganindya/board-games/minesweeper/images/game-2.png",
@@ -137,7 +138,7 @@
       "CSS 3": "css3"
     },
     "repo": "https://github.com/meganindya/board-games/tree/master/snake-ladder",
-    "desc": "",
+    "summary": "",
     "links": [
       "https://cdn.jsdelivr.net/gh/meganindya/board-games/snake-ladder/images/game-1.png",
       "https://cdn.jsdelivr.net/gh/meganindya/board-games/snake-ladder/images/game-2.png",
@@ -151,7 +152,7 @@
       "C": "c"
     },
     "repo": "https://github.com/meganindya/dinosaur-game",
-    "desc": "Dinosaur Game",
+    "summary": "Dinosaur Game",
     "links": [
       "https://cdn.jsdelivr.net/gh/meganindya/dinosaur-game/screenshots/screenshot-1.png",
       "https://cdn.jsdelivr.net/gh/meganindya/dinosaur-game/screenshots/screenshot-2.png"
@@ -164,6 +165,7 @@
       "Java": "java"
     },
     "repo": "https://github.com/meganindya/radar-game",
+    "summary": "",
     "desc": "Radar Game",
     "links": [
       "https://cdn.jsdelivr.net/gh/meganindya/radar-game/screenshots/sc-1.png",
@@ -179,7 +181,7 @@
       "TypeScript": "typescript"
     },
     "repo": "https://github.com/meganindya/moviepedia",
-    "desc": "Movie Explorer",
+    "summary": "Movie Explorer",
     "links": [
       "https://cdn.jsdelivr.net/gh/meganindya/moviepedia/assets/1-movie-list.png",
       "https://cdn.jsdelivr.net/gh/meganindya/moviepedia/assets/2-movie-details.png",
