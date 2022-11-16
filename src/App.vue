@@ -3,6 +3,7 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
+import { useStore } from '@/pinia';
 
 import { init } from './utils';
 
@@ -17,30 +18,28 @@ const ready = ref(false);
   setTimeout(() => (ready.value = true), 100);
 })();
 
-const colorMode = ref<0 | 1>(0);
+const store = useStore();
 
 {
-  const setColorMode = (value: 0 | 1): void => {
-    document.documentElement.setAttribute('color-scheme', value === 0 ? 'dark' : 'light');
-    localStorage.setItem('site-color-scheme', colorMode.value === 0 ? 'dark' : 'light');
-  };
-
   const colorScheme = localStorage.getItem('site-color-scheme') as 'dark' | 'light';
 
-  colorMode.value = colorScheme
-    ? colorScheme === 'dark'
+  store.setColorMode(
+    colorScheme
+      ? colorScheme === 'dark'
+        ? 0
+        : 1
+      : window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
       ? 0
       : 1
-    : window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
-    ? 0
-    : 1;
+  );
 
-  setColorMode(colorMode.value);
-
-  watch(colorMode, (value) => setColorMode(value));
+  watch(
+    () => store.colorMode,
+    (value) => store.setColorMode(value as 0 | 1)
+  );
 
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
-    colorMode.value = event.matches ? 0 : 1;
+    store.setColorMode(event.matches ? 0 : 1);
   });
 }
 
@@ -107,7 +106,12 @@ window.addEventListener('scroll', () => {
         </div>
 
         <div id="nav-right">
-          <ToggleSwitch labelLeft="🌚" labelRight="🌝" v-model:init="colorMode" />
+          <ToggleSwitch
+            labelLeft="🌚"
+            labelRight="🌝"
+            :init="store.getColorMode"
+            @update:init="(value) => store.setColorMode(value)"
+          />
         </div>
       </div>
     </nav>
