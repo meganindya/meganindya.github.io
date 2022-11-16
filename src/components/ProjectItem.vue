@@ -4,6 +4,7 @@
 import { onMounted, ref, toRefs, watch } from 'vue';
 
 import { useStore } from '@/pinia';
+import { getMDToHTML } from '@/utils';
 
 import ImageCarousel from '@/components/ImageCarousel.vue';
 
@@ -11,6 +12,7 @@ const props = defineProps({
   title: String,
   tech: Object,
   repo: String,
+  summary: String,
   desc: String,
   links: Array<string>
 });
@@ -65,6 +67,8 @@ onMounted(() => {
     }
   );
 });
+
+const showingDescription = ref(false);
 </script>
 
 <!-- == TEMPLATE =========================================================== -->
@@ -87,10 +91,43 @@ onMounted(() => {
       </template>
     </div>
 
-    <p v-html="desc"></p>
+    <template v-if="(summary && summary.length > 0) || (desc && desc.length > 0)">
+      <div class="project-item-writeup">
+        <template v-if="desc && desc.length > 0">
+          <ul class="project-item-writeup-btn-list">
+            <li
+              :class="`project-item-writeup-btn ${
+                showingDescription ? '' : 'project-item-writeup-btn-inactive'
+              }`"
+              @click="showingDescription = false"
+            >
+              <button>Summary</button>
+            </li>
+            <li
+              :class="`project-item-writeup-btn ${
+                !showingDescription ? '' : 'project-item-writeup-btn-inactive'
+              }`"
+              @click="showingDescription = true"
+            >
+              <button>Description</button>
+            </li>
+          </ul>
+        </template>
+
+        <template v-if="!showingDescription && summary!.length > 0">
+          <div class="project-item-summary" v-html="getMDToHTML(summary!)"></div>
+        </template>
+
+        <template v-if="desc && desc.length > 0 && showingDescription">
+          <div class="project-item-desc" v-html="getMDToHTML(desc!)"></div>
+        </template>
+      </div>
+    </template>
 
     <template v-if="links!.length > 0">
-      <ImageCarousel :images="links" />
+      <div class="project-item-image-carousel-wrapper">
+        <ImageCarousel :images="links" />
+      </div>
     </template>
   </div>
 </template>
@@ -112,7 +149,6 @@ onMounted(() => {
     flex-wrap: wrap;
     column-gap: 1rem;
     row-gap: 0.5rem;
-    margin-bottom: 0.5rem;
 
     .project-item-badge-list {
       display: flex;
@@ -128,6 +164,61 @@ onMounted(() => {
     .project-item-repo {
       height: 20px;
     }
+  }
+
+  .project-item-writeup {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    width: 100%;
+    margin-top: 0.5rem;
+
+    .project-item-writeup-btn-list {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      .project-item-writeup-btn {
+        margin: 0;
+        padding: 0;
+
+        button {
+          padding: 0;
+          border: unset;
+          outline: none;
+          background: none;
+          color: var(--c-accent-fg);
+          cursor: pointer;
+          transition: color 0.25s ease;
+        }
+
+        &.project-item-writeup-btn-inactive {
+          button {
+            color: var(--c-fg-muted);
+            cursor: unset;
+          }
+        }
+      }
+    }
+
+    .project-item-summary,
+    .project-item-desc {
+      width: 100%;
+      text-align: justify;
+
+      :last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .project-item-image-carousel-wrapper {
+    margin-top: 0.75rem;
   }
 }
 </style>

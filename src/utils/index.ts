@@ -8,7 +8,8 @@ let _projects: {
     title: string;
     tech: Record<string, string>;
     repo?: string;
-    desc: string;
+    summary: string;
+    desc?: string;
     links: string[];
 }[] = [];
 
@@ -45,11 +46,12 @@ export async function init(): Promise<void> {
                 _projects[i] = {
                     title: projects[i].title,
                     tech: projects[i].tech as unknown as Record<string, string>,
-                    desc: projects[i].desc,
+                    summary: projects[i].summary,
                     links: []
                 };
 
                 if ('repo' in projects[i]) _projects[i].repo = projects[i].repo;
+                if ('desc' in projects[i]) _projects[i].desc = projects[i].desc;
 
                 responses.forEach((response, j) => {
                     if (response.ok) {
@@ -78,7 +80,8 @@ export function getProjects(): {
     title: string;
     tech: Record<string, string>;
     repo?: string;
-    desc: string;
+    summary: string;
+    desc?: string;
     links: string[];
 }[] {
     return _projects;
@@ -86,6 +89,10 @@ export function getProjects(): {
 
 export function getHighlightHTML(): string {
     return markdown(highlight) as string;
+}
+
+export function getMDToHTML(md: string): string {
+    return markdown(md) as string;
 }
 
 export { drawContributions } from './contributions';

@@ -15,9 +15,19 @@ const projects = ref(getProjects());
 <template>
   <article id="projects">
     <ul id="project-list">
-      <template v-for="({ title, tech, repo, desc, links }, i) in projects" :key="`project-${i}`">
+      <template
+        v-for="({ title, tech, repo, summary, desc, links }, i) in projects"
+        :key="`project-${i}`"
+      >
         <li>
-          <ProjectItem :title="title" :tech="tech" :repo="repo" :desc="desc" :links="links" />
+          <ProjectItem
+            :title="title"
+            :tech="tech"
+            :repo="repo"
+            :summary="summary"
+            :desc="desc"
+            :links="links"
+          />
         </li>
       </template>
     </ul>
