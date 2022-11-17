@@ -4,7 +4,14 @@ import projects from './projects.json';
 import highlight from './highlight.md';
 
 let _profileMD = '';
-let _projects: { title: string; tech: string[]; desc: string; links: string[] }[] = [];
+let _projects: {
+    title: string;
+    tech: Record<string, string>;
+    repo?: string;
+    summary: string;
+    desc?: string;
+    links: string[];
+}[] = [];
 
 export async function init(): Promise<void> {
     return new Promise((resolve) => {
@@ -38,10 +45,13 @@ export async function init(): Promise<void> {
             responseProjects.forEach((responses, i) => {
                 _projects[i] = {
                     title: projects[i].title,
-                    tech: projects[i].tech,
-                    desc: projects[i].desc,
+                    tech: projects[i].tech as unknown as Record<string, string>,
+                    summary: projects[i].summary,
                     links: []
                 };
+
+                if ('repo' in projects[i]) _projects[i].repo = projects[i].repo;
+                if ('desc' in projects[i]) _projects[i].desc = projects[i].desc;
 
                 responses.forEach((response, j) => {
                     if (response.ok) {
@@ -68,8 +78,10 @@ export function getProfileHTML(): string {
 
 export function getProjects(): {
     title: string;
-    tech: string[];
-    desc: string;
+    tech: Record<string, string>;
+    repo?: string;
+    summary: string;
+    desc?: string;
     links: string[];
 }[] {
     return _projects;
@@ -77,6 +89,10 @@ export function getProjects(): {
 
 export function getHighlightHTML(): string {
     return markdown(highlight) as string;
+}
+
+export function getMDToHTML(md: string): string {
+    return markdown(md) as string;
 }
 
 export { drawContributions } from './contributions';
