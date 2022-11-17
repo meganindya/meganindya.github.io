@@ -100,8 +100,8 @@
     "desc": "Prototype of a _Fingerprint-based Biometric Voting Machine_. The goal was to develop a potential system of authentication to prevent duplicate vote casting. The design involved two **Arduino (ATmega328P)** micro-controllers communicating over an **I<sup>2</sup>C** communication channel, and using **8-pin serial EEPROM** as storage.\n\nThere are two units: an **acknowledgement unit** and a **voting unit**. The **acknowledgement unit** verifies the fingerprint, enables the **voting unit**, and stores the vote received from the **voting unit**. The **voting unit** receives the vote (after being enabled), and then sends the response to the **acknowledge unit**.",
     "links": [
       "https://cdn.jsdelivr.net/gh/meganindya/fingerprint-voting-machine/images/circuit-diagram.png",
-      "https://cdn.jsdelivr.net/gh/meganindya/fingerprint-voting-machine/images/circuit-build.jpg",
-      "https://cdn.jsdelivr.net/gh/meganindya/fingerprint-voting-machine/images/circuit-build-covered.jpg"
+      "https://cdn.jsdelivr.net/gh/meganindya/fingerprint-voting-machine/images/circuit-build.png",
+      "https://cdn.jsdelivr.net/gh/meganindya/fingerprint-voting-machine/images/circuit-build-covered.png"
     ]
   },
   {
