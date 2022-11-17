@@ -21,7 +21,8 @@
       "scikit-learn": "scikit-learn"
     },
     "repo": "https://github.com/meganindya/Image-Splicing-Localisation",
-    "summary": "BTech final year project.",
+    "summary": "Detection of Image Splicing and Localisation of Spliced region using difference in noise levels",
+    "desc": "The goal of this project is to detect and mark a spliced region in an image by using the difference in noise levels of the base image and the spliced region.The process starts with dividing the image into smaller regions of related pixels using an algorithm called **Simple Linear Iterative Clustering (SLIC)**. Thereafter, the noise levels of each spliced region is then estimated using _denoising_ algorithms like **Principal Component Analysis (PCA)** and **Robust wavelet-based** approach. Finally, the superpixels are clustered using **k-means++** algorithm. Given a good amount of difference in the noise levels of the base image and the spliced region, the two areas can be segmented.",
     "links": [
       "https://cdn.jsdelivr.net/gh/meganindya/Image-Splicing-Localisation@main/reports/images/Image%20Splicing%20Localisation%20-%20Presentation-17.png",
       "https://cdn.jsdelivr.net/gh/meganindya/Image-Splicing-Localisation@main/reports/images/Image%20Splicing%20Localisation%20-%20Presentation-18.png",
@@ -37,6 +38,7 @@
       "Android": "android"
     },
     "summary": "An audio-visual learning app for toddlers",
+    "desc": "This was my first android app I built back in 2016, when I was learning about the **Android SDK**. This app presents the users collections of names of _animals_, _birds_, _fruits_, _vegetables_, _flowers_, _colours_, _alphabets_, and _numeric digits_. Every item has an image and an audio of what the item is called. The audio plays on visitng an item or on tapping on it. Users can go back and forth within a collection or visit another collection from the home page. There are only image buttons so that infants can play around.\n\nThe development involved collecting the image and audio (text to speech) resources, minimising them, storing them, and fetching them as and when required.",
     "links": [
       "/assets/toddle/toddle-1.jpg",
       "/assets/toddle/toddle-2.jpg",
@@ -44,13 +46,14 @@
     ]
   },
   {
-    "title": "Toy Neural Network",
+    "title": "Neural Network Visualisation",
     "tech": {
       "Processing": "processing",
       "Java": "java"
     },
     "repo": "https://github.com/meganindya/toy-neural-network",
-    "summary": "Toy Neural Network",
+    "summary": "Visualisation of a **4-layer Neural Network** in action",
+    "desc": "While learning about **Neural Networks**, I wanted to visualize how _forward-propagation_ and _back-propagation_ happened. This is a visualisation of a **16-input, 4-output** neural network with two **8-neuron** inner layers, created in **Processing** using **Java**.",
     "links": [
       "https://cdn.jsdelivr.net/gh/meganindya/toy-neural-network/toy-neural-network.gif"
     ]
@@ -61,7 +64,8 @@
       "OpenCV": "opencv",
       "Python 3": "python"
     },
-    "summary": "",
+    "summary": "Draws the shortest path between two points in an image of a walled maze",
+    "desc": "This is a **Computer Vision** project developed to supervise an **Arduino** bot to trace the shortest path from start to finish in a walled maze, where the image of the maze is supplied to this program via an overhead camera feed.\n\n- The program finds the paths in the maze by thresholding out the walls, and finding the skeleton of the moveable area using **Skeletonize**.\n- It then creates a graph from the skeleton on a 2-D map using **SKNW**.\n- Finally, it generates the shortest path between start and finish using **A*** algorithm, and returns the path coordinates.",
     "repo": "https://github.com/meganindya/route-plotter",
     "links": [
       "https://cdn.jsdelivr.net/gh/meganindya/route-plotter/sample/input.jpg",
@@ -81,7 +85,8 @@
       "RabbitMQ": "rabbitmq"
     },
     "repo": "https://github.com/meganindya/library-management-system",
-    "summary": "<video src=\"/assets/lms/part-1.mp4\" controls=\"true\" style=\"width: 100%\"></video>\n<video src=\"/assets/lms/part-2.mp4\" controls=\"true\" style=\"width: 100%\"></video>",
+    "summary": "A digital bookeeping software for a library\n\n<video src=\"/assets/lms/part-1.mp4\" controls=\"true\" style=\"width: 100%\"></video>\n<video src=\"/assets/lms/part-2.mp4\" controls=\"true\" style=\"width: 100%\"></video>",
+    "desc": "This application supports two kinds of users: administrator and members. Members get access to operations like requesting/returning a book, and getting information about their transactions. The administator gets access to the database _CRUD_ operations and managing member requests.\n- This app has a _loosely coupled_ _client-side_ and _server-side_. Both are written in **TypeScript**.\n- The frontend uses **React** and **SCSS (SASS)**, and is bundled using **Webpack**.\n- The server uses **Express** for the _API_, which is further handled by **GraphQL.js**.\n- A _polygot_ database system is chosen, where transactional information requiring _ACID_ compliance is stored in a cloud-based **PostgreSQL** instance, and other read-priority data is stored in **MongoDB Altas**.\n- In addition, **Mongoose** is used to enforce a schema in the **MongoDB** collections.\n- A **RabbitMQ** _pub-sub_ queue is used to order requests from the _client-side_ to maintain consistency.\n\n<video src=\"/assets/lms/part-1.mp4\" controls=\"true\" style=\"width: 100%\"></video>\n<video src=\"/assets/lms/part-2.mp4\" controls=\"true\" style=\"width: 100%\"></video>",
     "links": []
   },
   {
@@ -92,7 +97,7 @@
     },
     "repo": "https://github.com/meganindya/fingerprint-voting-machine",
     "summary": "Prototype of a _Fingerprint-based Biometric Voting Machine_",
-    "desc": "Prototype of a _Fingerprint-based Biometric Voting Machine_. The goal was to develop a potential system of authentication to prevent duplicate vote casting. The design involved two **Arduino (ATmega328P)** micro-controllers communicating over an **I<sup>2</sup>C** communication channel, and using **8-pin serial EEPROM** as storage.",
+    "desc": "Prototype of a _Fingerprint-based Biometric Voting Machine_. The goal was to develop a potential system of authentication to prevent duplicate vote casting. The design involved two **Arduino (ATmega328P)** micro-controllers communicating over an **I<sup>2</sup>C** communication channel, and using **8-pin serial EEPROM** as storage.\n\nThere are two units: an **acknowledgement unit** and a **voting unit**. The **acknowledgement unit** verifies the fingerprint, enables the **voting unit**, and stores the vote received from the **voting unit**. The **voting unit** receives the vote (after being enabled), and then sends the response to the **acknowledge unit**.",
     "links": [
       "https://cdn.jsdelivr.net/gh/meganindya/fingerprint-voting-machine/images/circuit-diagram.png",
       "https://cdn.jsdelivr.net/gh/meganindya/fingerprint-voting-machine/images/circuit-build.jpg",
@@ -107,7 +112,7 @@
       "CSS 3": "css3"
     },
     "repo": "https://github.com/meganindya/board-games/tree/master/snake-ladder",
-    "summary": "2-player **Snakes & Ladders** game",
+    "summary": "2-player **Snakes & Ladders** game written in vanilla **JavaScript**",
     "links": [
       "https://cdn.jsdelivr.net/gh/meganindya/board-games/snake-ladder/images/game-1.png",
       "https://cdn.jsdelivr.net/gh/meganindya/board-games/snake-ladder/images/game-2.png",
@@ -122,7 +127,7 @@
       "CSS 3": "css3"
     },
     "repo": "https://github.com/meganindya/board-games/tree/master/minesweeper",
-    "summary": "",
+    "summary": "**Minesweeper** game written in vanilla **JavaScript**",
     "links": [
       "https://cdn.jsdelivr.net/gh/meganindya/board-games/minesweeper/images/game-1.png",
       "https://cdn.jsdelivr.net/gh/meganindya/board-games/minesweeper/images/game-2.png",
@@ -138,7 +143,7 @@
       "CSS 3": "css3"
     },
     "repo": "https://github.com/meganindya/board-games/tree/master/sudoku",
-    "summary": "",
+    "summary": "**Sudoku** game written in vanilla **JavaScript**",
     "links": [
       "https://cdn.jsdelivr.net/gh/meganindya/board-games/sudoku/demo/game-1.png",
       "https://cdn.jsdelivr.net/gh/meganindya/board-games/sudoku/demo/game-2.png",
@@ -166,8 +171,7 @@
       "Java": "java"
     },
     "repo": "https://github.com/meganindya/radar-game",
-    "summary": "",
-    "desc": "Radar Game",
+    "summary": "Classic space-shooter game where you score points shooting asteroids and surviving until one reaches you",
     "links": [
       "https://cdn.jsdelivr.net/gh/meganindya/radar-game/screenshots/sc-1.png",
       "https://cdn.jsdelivr.net/gh/meganindya/radar-game/screenshots/sc-2.png",
@@ -182,7 +186,8 @@
       "TypeScript": "typescript"
     },
     "repo": "https://github.com/meganindya/moviepedia",
-    "summary": "Movie Explorer",
+    "summary": "An encyclopedia of movies and actors/actresses",
+    "desc": "An **Angular** application featuring upcoming & popular movies, movie details, cast & their details, all fetched using **The Movie Database (TMDB) REST API**.",
     "links": [
       "https://cdn.jsdelivr.net/gh/meganindya/moviepedia/assets/1-movie-list.png",
       "https://cdn.jsdelivr.net/gh/meganindya/moviepedia/assets/2-movie-details.png",
