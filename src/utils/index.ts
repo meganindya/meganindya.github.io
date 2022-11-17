@@ -4,7 +4,13 @@ import projects from './projects.json';
 import highlight from './highlight.md';
 
 let _profileMD = '';
-let _projects: { title: string; tech: string[]; desc: string; links: string[] }[] = [];
+let _projects: {
+    title: string;
+    tech: Record<string, string>;
+    repo?: string;
+    desc: string;
+    links: string[];
+}[] = [];
 
 export async function init(): Promise<void> {
     return new Promise((resolve) => {
@@ -38,10 +44,12 @@ export async function init(): Promise<void> {
             responseProjects.forEach((responses, i) => {
                 _projects[i] = {
                     title: projects[i].title,
-                    tech: projects[i].tech,
+                    tech: projects[i].tech as unknown as Record<string, string>,
                     desc: projects[i].desc,
                     links: []
                 };
+
+                if ('repo' in projects[i]) _projects[i].repo = projects[i].repo;
 
                 responses.forEach((response, j) => {
                     if (response.ok) {
@@ -68,7 +76,8 @@ export function getProfileHTML(): string {
 
 export function getProjects(): {
     title: string;
-    tech: string[];
+    tech: Record<string, string>;
+    repo?: string;
     desc: string;
     links: string[];
 }[] {
