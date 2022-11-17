@@ -13,30 +13,43 @@ let _projects: {
     links: string[];
 }[] = [];
 
-export async function init(): Promise<void> {
+export async function init(
+    callback: (loadedCount: number, loadCount: number) => void
+): Promise<void> {
     return new Promise((resolve) => {
         (async () => {
+            let loadCount = 0;
+            let loadedCount = 0;
+
             const _profilePromise = fetch(
                 'https://raw.githubusercontent.com/meganindya/meganindya/main/README.md'
             );
 
-            // const _highlightPromise = import(`./${'highlight'}.md`);
-            // _highlightPromise.then((res) => res.text()).then((res) => console.log(res));
+            loadCount++;
 
             const _projectPromises = projects.map(
                 ({ links }) =>
                     new Promise<Response[]>((resolve) => {
+                        loadCount += links.length;
                         const imagePromises = links.map((link) => fetch(link));
                         (async () => {
-                            resolve(await Promise.all(imagePromises));
+                            const results = await Promise.all(imagePromises);
+                            loadedCount += results.length;
+                            callback(loadedCount, loadCount);
+                            resolve(results);
                         })();
                     })
             );
+
+            loadCount += _projectPromises.length;
 
             const [responseProfile, ...responseProjects] = await Promise.all([
                 _profilePromise,
                 ..._projectPromises
             ]);
+
+            loadedCount += 1 + _projectPromises.length;
+            callback(loadedCount, loadCount);
 
             if (responseProfile.ok) {
                 _profileMD = await responseProfile.text();

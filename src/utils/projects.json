@@ -194,5 +194,16 @@
       "https://cdn.jsdelivr.net/gh/meganindya/moviepedia/assets/3-actor-list.png",
       "https://cdn.jsdelivr.net/gh/meganindya/moviepedia/assets/4-actor-details.png"
     ]
+  },
+  {
+    "title": "Bonus",
+    "tech": {},
+    "summary": "_Media Art_ using math equations in **Desmos**",
+    "links": [
+      "/assets/bonus/bonus-1.png",
+      "/assets/bonus/bonus-2.png",
+      "/assets/bonus/bonus-3.png",
+      "/assets/bonus/bonus-4.png"
+    ]
   }
 ]
