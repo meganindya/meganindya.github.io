@@ -93,6 +93,7 @@ onMounted(() => {
 
   requestAnimationFrame(() => setOpacities());
   window.addEventListener('scroll', () => setOpacities());
+  new ResizeObserver(() => setOpacities()).observe(projectsListElem.value! as HTMLElement);
 });
 </script>
 
