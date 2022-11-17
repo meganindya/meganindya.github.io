@@ -58,7 +58,8 @@ const store = useStore();
 }
 
 const scrollPos = ref(0);
-window.addEventListener('scroll', () => {
+
+function updateScrollPos() {
   requestAnimationFrame(() => {
     const element = document.getElementById('app')!;
 
@@ -68,7 +69,10 @@ window.addEventListener('scroll', () => {
     const heightView = window.innerHeight;
     scrollPos.value = Math.min(Math.max(((0 - top) / (heightApp - heightView)) * 100, 0), 100);
   });
-});
+}
+
+window.addEventListener('scroll', () => updateScrollPos());
+new ResizeObserver(() => updateScrollPos()).observe(document.getElementById('app')! as HTMLElement);
 </script>
 
 <!-- == TEMPLATE =========================================================== -->
