@@ -13,8 +13,10 @@ import IconItem from '@/components/IconItem.vue';
 
 const ready = ref(false);
 
+const initStatus = ref<[number, number]>([0, 0]);
+
 (async () => {
-  await init();
+  await init((loadStatus, loadedStatus) => (initStatus.value = [loadStatus, loadedStatus]));
   setTimeout(() => (ready.value = true), 100);
 })();
 
@@ -74,7 +76,16 @@ window.addEventListener('scroll', () => {
 <template>
   <template v-if="!ready">
     <div id="throbber-wrapper">
-      <Throbber />
+      <div id="throbber-inner-wrapper">
+        <Throbber />
+        <div id="progress-bar">
+          <div
+            v-if="initStatus[1] > 0"
+            id="progress-bar-progress"
+            :style="`width: ${(initStatus[0] / initStatus[1]) * 100}%`"
+          ></div>
+        </div>
+      </div>
     </div>
   </template>
 
@@ -198,6 +209,35 @@ body {
       display: grid;
       place-items: center;
       height: 100vh;
+
+      #throbber-inner-wrapper {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+
+        #progress-bar {
+          position: absolute;
+          z-index: -1;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+
+          width: 15rem;
+          height: 4rem;
+          border: 1px solid var(--c-border-default);
+          border-radius: 0.5rem;
+
+          #progress-bar-progress {
+            width: 0;
+            height: 100%;
+            border-radius: 0.5rem;
+            background-color: var(--c-accent-emphasis);
+            opacity: 0.25;
+          }
+        }
+      }
     }
 
     a {
