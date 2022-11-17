@@ -5,8 +5,8 @@
       "MATLAB": "matlab"
     },
     "repo": "https://github.com/meganindya/secret-sharing",
-    "summary": "Implementation of some _Secret Sharing_ schemes in **MATLAB**.",
-    "desc": "Developed _MATLAB_ programs implementing different encryption/decryption schemes on grayscale images, based on some research papers in **Secret Sharing**.\n\n- Replicated in code, **Adi Shamir’s (r, n) thresholding secret sharing scheme**. This scheme uses _Lagrange’s Interpolation_ and _inverse-modulo_ operations to achieve results.\n- Followed Chih-Ching Thien and Ja-Chen Lin’s approach which is similar to the previous, to develop another (r, n) scheme. Also implemented the improved scheme that eliminates one drawback of \nthe initial method, which is also discussed in their paper.\n- Replicated in code, Li Bai’s matrix-based secret sharing scheme.\n- Replicated in code, George Blakley’s hyperplane based secret sharing scheme.\n- Developed the encryption and adding methods for **(2, n) Visual Cryptographic Scheme** based on _Naor – Shamir constructions_.\n",
+    "summary": "Implementation of some _Secret Sharing_ schemes in **MATLAB**",
+    "desc": "_MATLAB_ programs implementing different encryption/decryption schemes on grayscale images, based on some research papers in **Secret Sharing**.\n\n- Replicated in code, **Adi Shamir's** _(r, n) thresholding_ secret sharing scheme. This scheme uses _Lagrange's Interpolation_ and _inverse-modulo_ operations to achieve results.\n- Followed **Chih-Ching Thien** and **Ja-Chen Lin's** approach which is similar to the previous, to develop another _(r, n)_ scheme. Also implemented the improved scheme that eliminates one drawback of the initial method, which is also discussed in their paper.\n- Replicated in code, **Li Bai's** _matrix-based_ secret sharing scheme.\n- Developed the encryption and adding methods for **(2, n) Visual Cryptographic** scheme based on _Naor - Shamir constructions_.",
     "links": [
       "https://cdn.jsdelivr.net/gh/meganindya/secret-sharing@master/li-bai/demo.png",
       "https://cdn.jsdelivr.net/gh/meganindya/secret-sharing@master/thien-lin/demo.png",
@@ -36,7 +36,7 @@
     "tech": {
       "Android": "android"
     },
-    "summary": "Android app.",
+    "summary": "An audio-visual learning app for toddlers",
     "links": [
       "/assets/toddle/toddle-1.jpg",
       "/assets/toddle/toddle-2.jpg",
@@ -91,7 +91,8 @@
       "C++": "c++"
     },
     "repo": "https://github.com/meganindya/fingerprint-voting-machine",
-    "summary": "",
+    "summary": "Prototype of a _Fingerprint-based Biometric Voting Machine_",
+    "desc": "Prototype of a _Fingerprint-based Biometric Voting Machine_. The goal was to develop a potential system of authentication to prevent duplicate vote casting. The design involved two **Arduino (ATmega328P)** micro-controllers communicating over an **I<sup>2</sup>C** communication channel, and using **8-pin serial EEPROM** as storage.",
     "links": [
       "https://cdn.jsdelivr.net/gh/meganindya/fingerprint-voting-machine/images/circuit-diagram.png",
       "https://cdn.jsdelivr.net/gh/meganindya/fingerprint-voting-machine/images/circuit-build.jpg",
@@ -99,19 +100,18 @@
     ]
   },
   {
-    "title": "Sudoku",
+    "title": "Snakes & Ladders",
     "tech": {
       "JavaScript": "javascript",
       "HTML 5": "html5",
       "CSS 3": "css3"
     },
-    "repo": "https://github.com/meganindya/board-games/tree/master/sudoku",
-    "summary": "",
+    "repo": "https://github.com/meganindya/board-games/tree/master/snake-ladder",
+    "summary": "2-player **Snakes & Ladders** game",
     "links": [
-      "https://cdn.jsdelivr.net/gh/meganindya/board-games/sudoku/demo/game-1.png",
-      "https://cdn.jsdelivr.net/gh/meganindya/board-games/sudoku/demo/game-2.png",
-      "https://cdn.jsdelivr.net/gh/meganindya/board-games/sudoku/demo/game-3.png",
-      "https://cdn.jsdelivr.net/gh/meganindya/board-games/sudoku/demo/game-4.png"
+      "https://cdn.jsdelivr.net/gh/meganindya/board-games/snake-ladder/images/game-1.png",
+      "https://cdn.jsdelivr.net/gh/meganindya/board-games/snake-ladder/images/game-2.png",
+      "https://cdn.jsdelivr.net/gh/meganindya/board-games/snake-ladder/images/game-3.png"
     ]
   },
   {
@@ -131,18 +131,19 @@
     ]
   },
   {
-    "title": "Snakes & Ladders",
+    "title": "Sudoku",
     "tech": {
       "JavaScript": "javascript",
       "HTML 5": "html5",
       "CSS 3": "css3"
     },
-    "repo": "https://github.com/meganindya/board-games/tree/master/snake-ladder",
+    "repo": "https://github.com/meganindya/board-games/tree/master/sudoku",
     "summary": "",
     "links": [
-      "https://cdn.jsdelivr.net/gh/meganindya/board-games/snake-ladder/images/game-1.png",
-      "https://cdn.jsdelivr.net/gh/meganindya/board-games/snake-ladder/images/game-2.png",
-      "https://cdn.jsdelivr.net/gh/meganindya/board-games/snake-ladder/images/game-3.png"
+      "https://cdn.jsdelivr.net/gh/meganindya/board-games/sudoku/demo/game-1.png",
+      "https://cdn.jsdelivr.net/gh/meganindya/board-games/sudoku/demo/game-2.png",
+      "https://cdn.jsdelivr.net/gh/meganindya/board-games/sudoku/demo/game-3.png",
+      "https://cdn.jsdelivr.net/gh/meganindya/board-games/sudoku/demo/game-4.png"
     ]
   },
   {
@@ -152,7 +153,7 @@
       "C": "c"
     },
     "repo": "https://github.com/meganindya/dinosaur-game",
-    "summary": "Dinosaur Game",
+    "summary": "A version of Chrome's _Downasaur_ game built in **C** using the **OpenGL** API",
     "links": [
       "https://cdn.jsdelivr.net/gh/meganindya/dinosaur-game/screenshots/screenshot-1.png",
       "https://cdn.jsdelivr.net/gh/meganindya/dinosaur-game/screenshots/screenshot-2.png"
