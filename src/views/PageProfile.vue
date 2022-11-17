@@ -39,6 +39,14 @@ onMounted(() => {
       <div class="markdown-body" v-html="profileHTML"></div>
     </template>
 
+    <div id="profile-resume">
+      <a href="/assets/resume-anindya-kundu-nov-2022.pdf" target="_blank">
+        <p>
+          <span>View Résumé</span>
+        </p>
+      </a>
+    </div>
+
     <div id="profile-contributions">
       <canvas ref="contributionsElem"></canvas>
     </div>
@@ -48,16 +56,46 @@ onMounted(() => {
 <!-- == STYLE ============================================================== -->
 
 <style lang="scss">
-#profile-contributions {
-  display: grid;
-  place-items: center;
-  width: 100%;
-  margin-top: 2rem;
-  padding-top: 2rem;
-  border-top: 2px solid var(--c-border-muted);
+#profile {
+  > *:not(:first-child) {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--c-border-muted);
+  }
 
-  canvas {
+  #profile-resume {
+    display: grid;
+    place-items: center;
     width: 100%;
+
+    a {
+      p {
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        background: var(--c-accent-emphasis);
+        opacity: 0.625;
+        transition: background-color 0.5s ease, opacity 0.5s ease;
+
+        span {
+          color: var(--c-bg-default);
+        }
+
+        &:hover {
+          background-color: var(--c-accent-fg);
+          opacity: 0.75;
+        }
+      }
+    }
+  }
+
+  #profile-contributions {
+    display: grid;
+    place-items: center;
+    width: 100%;
+
+    canvas {
+      width: 100%;
+    }
   }
 }
 </style>
