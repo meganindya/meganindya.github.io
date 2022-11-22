@@ -2,7 +2,7 @@
   "years": [
     {
       "year": "2022",
-      "total": 687,
+      "total": 688,
       "range": {
         "start": "2022-01-01",
         "end": "2022-12-31"
@@ -286,13 +286,13 @@
     },
     {
       "date": "2022-11-22",
-      "count": 0,
-      "color": "#ebedf0",
-      "intensity": "0"
+      "count": 2,
+      "color": "#9be9a8",
+      "intensity": "1"
     },
     {
       "date": "2022-11-21",
-      "count": 1,
+      "count": 2,
       "color": "#9be9a8",
       "intensity": "1"
     },

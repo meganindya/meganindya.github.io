@@ -1,19 +1,5 @@
 [
   {
-    "title": "Secret Sharing",
-    "tech": {
-      "MATLAB": "matlab"
-    },
-    "repo": "https://github.com/meganindya/secret-sharing",
-    "summary": "Implementation of some _Secret Sharing_ schemes in **MATLAB**",
-    "desc": "_MATLAB_ programs implementing different encryption/decryption schemes on grayscale images, based on some research papers in **Secret Sharing**.\n\n- Replicated in code, **Adi Shamir's** _(r, n) thresholding_ secret sharing scheme. This scheme uses _Lagrange's Interpolation_ and _inverse-modulo_ operations to achieve results.\n- Followed **Chih-Ching Thien** and **Ja-Chen Lin's** approach which is similar to the previous, to develop another _(r, n)_ scheme. Also implemented the improved scheme that eliminates one drawback of the initial method, which is also discussed in their paper.\n- Replicated in code, **Li Bai's** _matrix-based_ secret sharing scheme.\n- Developed the encryption and adding methods for **(2, n) Visual Cryptographic** scheme based on _Naor - Shamir constructions_.",
-    "links": [
-      "https://cdn.jsdelivr.net/gh/meganindya/secret-sharing@master/li-bai/demo.png",
-      "https://cdn.jsdelivr.net/gh/meganindya/secret-sharing@master/thien-lin/demo.png",
-      "https://cdn.jsdelivr.net/gh/meganindya/secret-sharing@master/visual-cryptography/demo.png"
-    ]
-  },
-  {
     "title": "Image Splicing Detection and Localization using Digital Forensics",
     "tech": {
       "Python 3": "python",
@@ -33,6 +19,37 @@
     ]
   },
   {
+    "title": "Library Management System",
+    "tech": {
+      "React": "react",
+      "SCSS": "scss",
+      "Express": "express",
+      "TypeScript": "typescript",
+      "GraphQL": "graphql",
+      "MongoDB": "mongodb",
+      "PostgreSQL": "postgresql",
+      "RabbitMQ": "rabbitmq"
+    },
+    "repo": "https://github.com/meganindya/library-management-system",
+    "summary": "A digital bookeeping software for a library\n\n<video src=\"/assets/lms/part-1.mp4\" controls=\"true\" style=\"width: 100%\"></video>\n<video src=\"/assets/lms/part-2.mp4\" controls=\"true\" style=\"width: 100%\"></video>",
+    "desc": "This application supports two kinds of users: administrator and members. Members get access to operations like requesting/returning a book, and getting information about their transactions. The administator gets access to the database _CRUD_ operations and managing member requests.\n- This app has a _loosely coupled_ _client-side_ and _server-side_. Both are written in **TypeScript**.\n- The frontend uses **React** and **SCSS (SASS)**, and is bundled using **Webpack**.\n- The server uses **Express** for the _API_, which is further handled by **GraphQL.js**.\n- A _polygot_ database system is chosen, where transactional information requiring _ACID_ compliance is stored in a cloud-based **PostgreSQL** instance, and other read-priority data is stored in **MongoDB Altas**.\n- In addition, **Mongoose** is used to enforce a schema in the **MongoDB** collections.\n- A **RabbitMQ** _pub-sub_ queue is used to order requests from the _client-side_ to maintain consistency.\n\n<video src=\"/assets/lms/part-1.mp4\" controls=\"true\" style=\"width: 100%\"></video>\n<video src=\"/assets/lms/part-2.mp4\" controls=\"true\" style=\"width: 100%\"></video>",
+    "links": []
+  },
+  {
+    "title": "Secret Sharing",
+    "tech": {
+      "MATLAB": "matlab"
+    },
+    "repo": "https://github.com/meganindya/secret-sharing",
+    "summary": "Implementation of some _Secret Sharing_ schemes in **MATLAB**",
+    "desc": "_MATLAB_ programs implementing different encryption/decryption schemes on grayscale images, based on some research papers in **Secret Sharing**.\n\n- Replicated in code, **Adi Shamir's** _(r, n) thresholding_ secret sharing scheme. This scheme uses _Lagrange's Interpolation_ and _inverse-modulo_ operations to achieve results.\n- Followed **Chih-Ching Thien** and **Ja-Chen Lin's** approach which is similar to the previous, to develop another _(r, n)_ scheme. Also implemented the improved scheme that eliminates one drawback of the initial method, which is also discussed in their paper.\n- Replicated in code, **Li Bai's** _matrix-based_ secret sharing scheme.\n- Developed the encryption and adding methods for **(2, n) Visual Cryptographic** scheme based on _Naor - Shamir constructions_.",
+    "links": [
+      "https://cdn.jsdelivr.net/gh/meganindya/secret-sharing@master/li-bai/demo.png",
+      "https://cdn.jsdelivr.net/gh/meganindya/secret-sharing@master/thien-lin/demo.png",
+      "https://cdn.jsdelivr.net/gh/meganindya/secret-sharing@master/visual-cryptography/demo.png"
+    ]
+  },
+  {
     "title": "Toddle",
     "tech": {
       "Android": "android"
@@ -43,19 +60,6 @@
       "/assets/toddle/toddle-1.jpg",
       "/assets/toddle/toddle-2.jpg",
       "/assets/toddle/toddle-3.jpg"
-    ]
-  },
-  {
-    "title": "Neural Network Visualisation",
-    "tech": {
-      "Processing": "processing",
-      "Java": "java"
-    },
-    "repo": "https://github.com/meganindya/toy-neural-network",
-    "summary": "Visualisation of a **4-layer Neural Network** in action",
-    "desc": "While learning about **Neural Networks**, I wanted to visualize how _forward-propagation_ and _back-propagation_ happened. This is a visualisation of a **16-input, 4-output** neural network with two **8-neuron** inner layers, created in **Processing** using **Java**.",
-    "links": [
-      "https://cdn.jsdelivr.net/gh/meganindya/toy-neural-network/toy-neural-network.gif"
     ]
   },
   {
@@ -73,21 +77,17 @@
     ]
   },
   {
-    "title": "Library Management System",
+    "title": "Neural Network Visualisation",
     "tech": {
-      "React": "react",
-      "SCSS": "scss",
-      "Express": "express",
-      "TypeScript": "typescript",
-      "GraphQL": "graphql",
-      "MongoDB": "mongodb",
-      "PostgreSQL": "postgresql",
-      "RabbitMQ": "rabbitmq"
+      "Processing": "processing",
+      "Java": "java"
     },
-    "repo": "https://github.com/meganindya/library-management-system",
-    "summary": "A digital bookeeping software for a library\n\n<video src=\"/assets/lms/part-1.mp4\" controls=\"true\" style=\"width: 100%\"></video>\n<video src=\"/assets/lms/part-2.mp4\" controls=\"true\" style=\"width: 100%\"></video>",
-    "desc": "This application supports two kinds of users: administrator and members. Members get access to operations like requesting/returning a book, and getting information about their transactions. The administator gets access to the database _CRUD_ operations and managing member requests.\n- This app has a _loosely coupled_ _client-side_ and _server-side_. Both are written in **TypeScript**.\n- The frontend uses **React** and **SCSS (SASS)**, and is bundled using **Webpack**.\n- The server uses **Express** for the _API_, which is further handled by **GraphQL.js**.\n- A _polygot_ database system is chosen, where transactional information requiring _ACID_ compliance is stored in a cloud-based **PostgreSQL** instance, and other read-priority data is stored in **MongoDB Altas**.\n- In addition, **Mongoose** is used to enforce a schema in the **MongoDB** collections.\n- A **RabbitMQ** _pub-sub_ queue is used to order requests from the _client-side_ to maintain consistency.\n\n<video src=\"/assets/lms/part-1.mp4\" controls=\"true\" style=\"width: 100%\"></video>\n<video src=\"/assets/lms/part-2.mp4\" controls=\"true\" style=\"width: 100%\"></video>",
-    "links": []
+    "repo": "https://github.com/meganindya/toy-neural-network",
+    "summary": "Visualisation of a **4-layer Neural Network** in action",
+    "desc": "While learning about **Neural Networks**, I wanted to visualize how _forward-propagation_ and _back-propagation_ happened. This is a visualisation of a **16-input, 4-output** neural network with two **8-neuron** inner layers, created in **Processing** using **Java**.",
+    "links": [
+      "https://cdn.jsdelivr.net/gh/meganindya/toy-neural-network/toy-neural-network.gif"
+    ]
   },
   {
     "title": "Fingerprint-based Voting Machine",
