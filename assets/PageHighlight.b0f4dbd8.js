@@ -1,0 +1,1 @@
+import{d as l,r as a,k as r,o,c as i,a as c}from"./index.4da276f1.js";const s=["innerHTML"],u=l({__name:"PageHighlight",setup(_){const n=a(r()),e=a(null);return o(()=>{[...e.value.querySelectorAll("a")].forEach(t=>t.target="_blank")}),(t,g)=>(c(),i("article",{id:"highlight",class:"markdown-body",innerHTML:n.value,ref_key:"articleRef",ref:e},null,8,s))}});export{u as default};
