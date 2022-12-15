@@ -22,7 +22,7 @@ export async function init(
             let loadedCount = 0;
 
             const _profilePromise = fetch(
-                'https://raw.githubusercontent.com/meganindya/meganindya/main/README.md'
+                'https://cdn.jsdelivr.net/gh/meganindya/meganindya/README.md'
             );
 
             loadCount++;
